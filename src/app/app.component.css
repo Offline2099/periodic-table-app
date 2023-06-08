@@ -1,0 +1,30 @@
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-header {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  padding: 20px 5px;
+}
+
+.main-header > span {
+  display: flex;
+  justify-content: center;
+  font-size: 26px;
+  letter-spacing: .02em;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 599px) {
+  .main-header {
+    flex-wrap: wrap;
+  }
+  .main-header > span {
+    flex-basis: 100%;
+    font-size: 20px;
+  }
+}

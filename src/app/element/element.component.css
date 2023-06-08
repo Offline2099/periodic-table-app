@@ -1,0 +1,77 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  height: calc(100% - 16px);
+  margin: 3px;
+  padding: 5px;
+  background: #222;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+  transition: .2s;
+  box-shadow: 0 0 3px 3px #242424 inset;
+}
+
+:host:hover {
+  background: #282828;
+  box-shadow: 0 0 3px 3px #333 inset;
+}
+
+.element-number {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+
+.element-symbol {
+  display: flex;
+  padding: 0 3px;
+  font-size: 22px;
+  letter-spacing: 0.01em;
+}
+
+.element-name {
+  display: flex;
+  flex-basis: 100%;
+  padding: 0 3px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1849px) {
+  .element-name {
+    display: none;
+  }
+  .element-number {
+    font-size: 14px;
+  }
+  .element-symbol {
+    align-items: flex-end;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1349px) {
+  :host {
+    height: calc(100% - 10px);
+    margin: 2px;
+    padding: 3px 2px 4px 2px;
+  }
+  .element-number {
+    right: 6px;
+    font-size: 12px;
+  }
+  .element-symbol {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  :host {
+    padding: 3px 2px 4px 5px;
+  }
+  .element-symbol {
+    font-size: 18px;
+  }
+}

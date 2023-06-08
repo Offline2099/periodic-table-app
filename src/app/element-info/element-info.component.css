@@ -1,0 +1,156 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 800px;
+  margin-top: 20vh;
+  background: #242424;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.element-data-wrapper {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.element-number {
+  display: inline-flex;
+  padding: 3px 10px;
+  background: #333;
+  font-size: 22px;
+}
+
+.element-name {
+  display: inline-flex;
+  flex-basis: 100%;
+  padding: 3px 10px;
+  background: #2a2a2a;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+}
+
+.element-close-button {
+  display: inline-flex;
+  padding: 3px 15px;
+  background: #333;
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: .3s;
+}
+
+.element-close-button:hover {
+  background: #383838;
+}
+
+.element-symbol {
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  font-size: 40px;
+  line-height: 100%;
+}
+
+.element-data-container {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  gap: 3px;
+  margin: 8px 10px 10px 0;
+}
+
+.element-data-row {
+  display: flex;
+}
+
+.element-data-property,
+.element-data-value {
+  display: flex;
+  align-items: flex-end;
+  padding: 5px 10px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  transition: .2s;
+}
+
+.element-data-property {
+  flex-basis: 65%;
+  margin-right: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.element-data-value {
+  flex-grow: 1;
+  justify-content: center;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #bbb;
+}
+
+.element-data-row:hover > div {
+  background: #2e2e2e;
+}
+
+.element-data-value-unit {
+  margin-left: .5em;
+  color: #999;
+}
+
+
+@media (max-width: 1199px) {
+  :host {
+    flex-basis: 580px;
+  }
+  .element-data-property {
+    flex-basis: 55%;
+  }
+  .element-data-value {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 899px) {
+  .element-number,
+  .element-name,
+  .element-close-button {
+    font-size: 18px;
+  }
+  .element-data-property,
+  .element-data-value {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 599px) {
+  :host {
+    flex-basis: calc(100% - 20px);
+    margin-top: 50px;
+  }
+  .element-symbol {
+    display: none;
+  }
+  .element-data-container {
+    margin: 5px;
+  }
+  .element-data-row {
+    flex-direction: column;
+    margin-bottom: 1px;
+  }
+  .element-data-property,
+  .element-data-value {
+    flex-basis: 100%;
+    margin: 0 0 2px 0;
+  }
+  .element-data-property {
+    background: #2e2e2e;
+    border-radius: 4px 4px 0 0;
+  }
+  .element-data-value {
+    padding: 4px 10px;
+    border-radius: 0 0 4px 4px;
+  }
+}

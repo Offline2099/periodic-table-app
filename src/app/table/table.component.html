@@ -1,0 +1,184 @@
+
+<!-- Main Table -->
+<table class="table-main">
+  <thead>
+    <tr class="invisible-desktop-wide">
+      <td class="cell-empty"></td>
+      <td colspan="9">
+        <div class="controls-container">
+          <!-- Mobile -->
+          <div 
+            class="controls-button invisible-tablet invisible-desktop-small invisible-desktop-wide"
+            [ngClass]="{'controls-button-disabled': !visibilityWindowStartMobile}"
+            (click)="changeVisibilityWindow(1, -visibilityMobile)">&#9664;</div>
+          <div 
+            class="controls-button invisible-tablet invisible-desktop-small invisible-desktop-wide"
+            [ngClass]="{'controls-button-disabled': visibilityWindowStartMobile >= 15}"
+            (click)="changeVisibilityWindow(1, visibilityMobile)">&#9654;</div>
+          <!-- Tablet -->
+          <div 
+            class="controls-button invisible-mobile invisible-desktop-small invisible-desktop-wide"
+            [ngClass]="{'controls-button-disabled': !visibilityWindowStartTablet}"
+            (click)="changeVisibilityWindow(2, -visibilityTablet)">&#9664;</div>
+          <div 
+            class="controls-button invisible-mobile invisible-desktop-small invisible-desktop-wide"
+            [ngClass]="{'controls-button-disabled': visibilityWindowStartTablet >= 12}"
+            (click)="changeVisibilityWindow(2, visibilityTablet)">&#9654;</div>
+          <!-- Small Desktop -->
+          <div 
+            class="controls-button invisible-mobile invisible-tablet invisible-desktop-wide"
+            [ngClass]="{'controls-button-disabled': !visibilityWindowStartDesktopSmall}"
+            (click)="changeVisibilityWindow(3, -visibilityDesktopSmall)">&#9664;</div>
+          <div 
+            class="controls-button invisible-mobile invisible-tablet invisible-desktop-wide"
+            [ngClass]="{'controls-button-disabled': visibilityWindowStartDesktopSmall >= 9}"
+            (click)="changeVisibilityWindow(3, visibilityDesktopSmall)">&#9654;</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-empty"></td>
+      <th 
+        *ngFor="let g of arrG"
+        class="cell-group" 
+        [ngClass]="{
+          'invisible-mobile': !arrVisibilityMobile[0][g],
+          'invisible-tablet': !arrVisibilityTablet[0][g],
+          'invisible-desktop-small': !arrVisibilityDesktopSmall[0][g]
+        }">Group {{g + 1}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of arrP">
+      <th class="cell-period">Period {{p + 1}}</th>
+      <td 
+        *ngFor="let g of arrG"
+        [ngClass]="{
+          'invisible-mobile': !arrVisibilityMobile[p][g],
+          'invisible-tablet': !arrVisibilityTablet[p][g],
+          'invisible-desktop-small': !arrVisibilityDesktopSmall[p][g]
+        }">
+        <app-element
+          *ngIf="arrTable[p][g]"
+          [e]="arrTable[p][g]!"
+          (click)="pickElement(arrTable[p][g]!)">
+        </app-element>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Lanthanoides and Actinoides (Mobile) -->
+<div class="exceptions-container">
+  <table class="table-exceptions invisible-tablet invisible-desktop-small invisible-desktop-wide">
+    <tbody>
+      <tr>
+        <th colspan="2">Lanthanoides<br />(Period&nbsp;6)</th>
+      </tr>
+      <tr *ngFor="let row of arrExc">
+        <td *ngFor="let e of arrLanthanoides | slice:(2 * row):(2 * row + 2)">
+          <app-element
+            [e]="e"
+            (click)="pickElement(e)">
+          </app-element>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table-exceptions invisible-tablet invisible-desktop-small invisible-desktop-wide">
+    <tbody>
+      <tr>
+        <th colspan="2">Actinoides<br />(Period&nbsp;6)</th>
+      </tr>
+      <tr *ngFor="let row of arrExc">
+        <td *ngFor="let e of arrActinoides | slice:(2 * row):(2 * row + 2)">
+          <app-element
+            [e]="e"
+            (click)="pickElement(e)">
+          </app-element>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Lanthanoides and Actinoides (Tablet) -->
+  <table class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">
+    <tbody>
+      <tr>
+        <th rowspan="2">Lanthanoides<br />(Period&nbsp;6)</th>
+        <td *ngFor="let e of arrLanthanoides | slice:0:7">
+          <app-element
+            [e]="e"
+            (click)="pickElement(e)">
+          </app-element>
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let e of arrLanthanoides | slice:7">
+          <app-element
+            [e]="e"
+            (click)="pickElement(e)">
+          </app-element>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">
+    <tbody>
+      <tr>
+        <th rowspan="2">Actinoides<br />(Period&nbsp;7)</th>
+        <td *ngFor="let e of arrActinoides | slice:0:7">
+          <app-element
+            [e]="e"
+            (click)="pickElement(e)">
+          </app-element>
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let e of arrActinoides | slice:7">
+          <app-element
+            [e]="e"
+            (click)="pickElement(e)">
+          </app-element>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Lanthanoides and Actinoides (Desktop) -->
+<table class="table-exceptions invisible-mobile invisible-tablet">
+  <tbody>
+    <tr>
+      <th>Lanthanoides<br />(Period&nbsp;6)</th>
+      <td *ngFor="let e of arrLanthanoides">
+        <app-element
+          [e]="e"
+          (click)="pickElement(e)">
+        </app-element>
+      </td>
+    </tr>
+    <tr>
+      <th>Actinoides<br />(Period&nbsp;7)</th>
+      <td *ngFor="let e of arrActinoides">
+        <app-element
+          [e]="e"
+          (click)="pickElement(e)">
+        </app-element>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Overlay -->
+<div 
+  class="page-overlay"
+  *ngIf="pickedElement"
+  (click)="pickElement(undefined)">
+  <app-element-info
+    *ngIf="pickedElement"
+    [e]="pickedElement"
+    (click)="$event.stopPropagation()"
+    (close)="pickElement(undefined)">
+  </app-element-info>
+</div>

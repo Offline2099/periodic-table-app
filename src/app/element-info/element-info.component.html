@@ -1,0 +1,27 @@
+
+<div class="element-data-wrapper">
+  <div class="element-number">{{e.number}}</div>
+  <div class="element-name">{{e.name}}</div>
+  <div 
+    class="element-close-button"
+    (click)="close.emit(null)">X</div>
+</div>
+
+<div class="element-data-wrapper">
+  <div class="element-symbol">{{e.symbol}}</div>
+  <div class="element-data-container">
+    <div 
+      *ngFor="let d of data"
+      class="element-data-row">
+      <div class="element-data-property">{{d.property}}</div>
+      <div class="element-data-value">
+        <span>{{d.value}}</span>
+        <span 
+          *ngIf="d.unit"
+          class="element-data-value-unit"
+          [innerHTML]="d.unit">
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
