@@ -65,20 +65,29 @@
         [ngClass]="{
           'invisible-mobile': !arrVisibilityMobile[0][g],
           'invisible-tablet': !arrVisibilityTablet[0][g],
-          'invisible-desktop-small': !arrVisibilityDesktopSmall[0][g]
-        }">Group {{g + 1}}</th>
+          'invisible-desktop-small': !arrVisibilityDesktopSmall[0][g],
+          'group-hovered': groupHovered == g
+        }"
+        (mouseenter)="groupHovered = g"
+        (mouseleave)="groupHovered = undefined">Group {{g + 1}}</th>
     </tr>
   </thead>
   <tbody>
     <!-- Periods -->
     <tr *ngFor="let p of arrP">
-      <th class="cell-period">Period {{p + 1}}</th>
+      <th 
+        class="cell-period"
+        [ngClass]="{'period-hovered': periodHovered == p}"
+        (mouseenter)="periodHovered = p"
+        (mouseleave)="periodHovered = undefined">Period {{p + 1}}</th>
       <td 
         *ngFor="let g of arrG"
         [ngClass]="{
           'invisible-mobile': !arrVisibilityMobile[p][g],
           'invisible-tablet': !arrVisibilityTablet[p][g],
-          'invisible-desktop-small': !arrVisibilityDesktopSmall[p][g]
+          'invisible-desktop-small': !arrVisibilityDesktopSmall[p][g],
+          'group-hovered': groupHovered == g,
+          'period-hovered': periodHovered == p
         }">
         <app-element
           *ngIf="arrTable[p][g]"
@@ -173,8 +182,13 @@
 <table class="table-exceptions invisible-mobile invisible-tablet">
   <tbody>
     <tr>
-      <th>Lanthanoides<br />(Period&nbsp;6)</th>
-      <td *ngFor="let e of arrLanthanoides">
+      <th 
+        [ngClass]="{'period-hovered' : periodHovered == -1}"
+        (mouseenter)="periodHovered = -1"
+        (mouseleave)="periodHovered = undefined">Lanthanoides<br />(Period&nbsp;6)</th>
+      <td 
+        *ngFor="let e of arrLanthanoides"
+        [ngClass]="{'period-hovered' : periodHovered == -1}">
         <app-element
           [e]="e"
           (click)="pickElement(e)">
@@ -182,8 +196,13 @@
       </td>
     </tr>
     <tr>
-      <th>Actinoides<br />(Period&nbsp;7)</th>
-      <td *ngFor="let e of arrActinoides">
+      <th
+        [ngClass]="{'period-hovered' : periodHovered == -2}"
+        (mouseenter)="periodHovered = -2"
+        (mouseleave)="periodHovered = undefined">Actinoides<br />(Period&nbsp;7)</th>
+      <td 
+        *ngFor="let e of arrActinoides"
+        [ngClass]="{'period-hovered' : periodHovered == -2}">
         <app-element
           [e]="e"
           (click)="pickElement(e)">

@@ -20,6 +20,9 @@ export class TableComponent implements OnInit {
 
   pickedElement: chemicalElement | undefined;
 
+  periodHovered: number | undefined;
+  groupHovered: number | undefined;
+
   visibilityMobile = 3;
   visibilityTablet = 6;
   visibilityDesktopSmall = 9;
