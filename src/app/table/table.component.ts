@@ -32,6 +32,10 @@ export class TableComponent implements OnInit {
   arrVisibilityTablet: boolean[][] = [];
   arrVisibilityDesktopSmall: boolean[][] = [];
 
+  arrButtonsMobile = [0, 3, 6, 9, 12, 15];
+  arrButtonsTablet = [0, 6, 12];
+  arrButtonsDesktopSmall = [0, 9];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -67,16 +71,19 @@ export class TableComponent implements OnInit {
 
     if (mode == 1) {
       this.arrVisibilityMobile = [];
+      this.visibilityWindowStartMobile = group;
       visibilityRange = this.visibilityMobile;
     }
 
     if (mode == 2) {
       this.arrVisibilityTablet = [];
+      this.visibilityWindowStartTablet = group;
       visibilityRange = this.visibilityTablet;
     }
 
     if (mode == 3) {
       this.arrVisibilityDesktopSmall = [];
+      this.visibilityWindowStartDesktopSmall = group;
       visibilityRange = this.visibilityDesktopSmall;
     }
 
@@ -102,9 +109,6 @@ export class TableComponent implements OnInit {
     let newStart = visibilityWindowStart + increment;
 
     if (newStart >= 0 && newStart <= 18 - increment) {
-      if (mode == 1) this.visibilityWindowStartMobile = newStart;
-      if (mode == 2) this.visibilityWindowStartTablet = newStart;
-      if (mode == 3) this.visibilityWindowStartDesktopSmall = newStart;
       this.setVisibility(mode, newStart);
     }
   }

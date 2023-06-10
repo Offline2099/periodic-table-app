@@ -6,32 +6,51 @@
     <tr class="invisible-desktop-wide">
       <td class="cell-empty"></td>
       <td colspan="9">
-        <div class="controls-container">
-          <!-- Mobile -->
+        <!-- Mobile -->
+        <div class="controls-container invisible-tablet invisible-desktop-small invisible-desktop-wide">
           <div 
-            class="controls-button invisible-tablet invisible-desktop-small invisible-desktop-wide"
+            class="controls-button"
             [ngClass]="{'controls-button-disabled': !visibilityWindowStartMobile}"
             (click)="changeVisibilityWindow(1, -visibilityMobile)">&#9664;</div>
           <div 
-            class="controls-button invisible-tablet invisible-desktop-small invisible-desktop-wide"
+            *ngFor="let b of arrButtonsMobile"
+            class="controls-button controls-button-tiny"
+            [ngClass]="{'controls-button-selected': visibilityWindowStartMobile == b}"
+            (click)="setVisibility(1, b)"></div>
+          <div 
+            class="controls-button"
             [ngClass]="{'controls-button-disabled': visibilityWindowStartMobile >= 15}"
             (click)="changeVisibilityWindow(1, visibilityMobile)">&#9654;</div>
-          <!-- Tablet -->
+        </div>
+        <!-- Tablet -->
+        <div class="controls-container invisible-mobile invisible-desktop-small invisible-desktop-wide">
           <div 
-            class="controls-button invisible-mobile invisible-desktop-small invisible-desktop-wide"
+            class="controls-button "
             [ngClass]="{'controls-button-disabled': !visibilityWindowStartTablet}"
             (click)="changeVisibilityWindow(2, -visibilityTablet)">&#9664;</div>
           <div 
-            class="controls-button invisible-mobile invisible-desktop-small invisible-desktop-wide"
+            *ngFor="let b of arrButtonsTablet"
+            class="controls-button"
+            [ngClass]="{'controls-button-selected': visibilityWindowStartTablet == b}"
+            (click)="setVisibility(2, b)">Groups {{b + 1}} &hellip; {{b + visibilityTablet}}</div>
+          <div 
+            class="controls-button"
             [ngClass]="{'controls-button-disabled': visibilityWindowStartTablet >= 12}"
             (click)="changeVisibilityWindow(2, visibilityTablet)">&#9654;</div>
-          <!-- Small Desktop -->
+        </div>
+        <!-- Small Desktop -->
+        <div class="controls-container invisible-mobile invisible-tablet invisible-desktop-wide">
           <div 
-            class="controls-button invisible-mobile invisible-tablet invisible-desktop-wide"
+            class="controls-button"
             [ngClass]="{'controls-button-disabled': !visibilityWindowStartDesktopSmall}"
             (click)="changeVisibilityWindow(3, -visibilityDesktopSmall)">&#9664;</div>
           <div 
-            class="controls-button invisible-mobile invisible-tablet invisible-desktop-wide"
+            *ngFor="let b of arrButtonsDesktopSmall"
+            class="controls-button"
+            [ngClass]="{'controls-button-selected': visibilityWindowStartDesktopSmall == b}"
+            (click)="setVisibility(3, b)">Groups {{b + 1}} &hellip; {{b + visibilityDesktopSmall}}</div>
+          <div 
+            class="controls-button"
             [ngClass]="{'controls-button-disabled': visibilityWindowStartDesktopSmall >= 9}"
             (click)="changeVisibilityWindow(3, visibilityDesktopSmall)">&#9654;</div>
         </div>

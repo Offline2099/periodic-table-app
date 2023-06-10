@@ -33,24 +33,24 @@ sup, sub {
 
 @media (max-width: 599px) {
   .invisible-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (min-width: 600px) and (max-width: 899px) {
   .invisible-tablet {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (min-width: 900px) and (max-width: 1199px) {
   .invisible-desktop-small {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (min-width: 1200px) {
   .invisible-desktop-wide {
-    display: none;
+    display: none !important;
   }
 }
