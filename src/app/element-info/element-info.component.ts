@@ -22,10 +22,6 @@ export class ElementInfoComponent implements OnInit {
   formDataObjects(): void {
     this.data = [
       {
-        property: 'Discovery',
-        value: this.e.discovery || 'Ancient times'
-      },
-      {
         property: 'Period',
         value: this.e.period || '??'
       },
@@ -34,7 +30,11 @@ export class ElementInfoComponent implements OnInit {
         value: 
           this.e.group > 0 ? this.e.group : 
             this.e.group == -1 ? 'Lanthanoides' :
-            this.e.group == -2 ? 'Actinoides' : '??'
+              this.e.group == -2 ? 'Actinoides' : '??'
+      },
+      {
+        property: 'Year of discovery',
+        value: this.e.discovery || 'Ancient times'
       },
       {
         property: 'Standard atomic weight',
@@ -44,18 +44,18 @@ export class ElementInfoComponent implements OnInit {
       {
         property: 'Density',
         value: this.e.density || '??',
-        unit: this.e.density ? `g/cm<sup>3</sup>` : ''
+        unit: this.e.density ? `kg/m<sup>3</sup>` : ''
       },
       {
         property: 'Melting temperature',
-        value: this.e.melt >= 0 ? '\u2248 ' + Math.round(this.e.melt - 273) : 'Unknown',
+        value: this.e.melt >= 0 ? this.e.melt : 'Unknown',
         unit: this.e.melt >= 0 ? `&deg;C` : ''
       },
       {
         property: 'Boiling temperature',
-        value: this.e.boil >= 0 ? '\u2248 ' + Math.round(this.e.boil - 273) : 'Unknown',
+        value: this.e.boil >= 0 ? this.e.boil : 'Unknown',
         unit: this.e.boil >= 0 ? `&deg;C` : ''
-      },
+      }
     ]
   }
 

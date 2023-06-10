@@ -1,3 +1,6 @@
+
+/*   Container   */
+
 :host {
   position: relative;
   display: flex;
@@ -13,10 +16,29 @@
   box-shadow: 0 0 3px 3px #242424 inset;
 }
 
-:host:hover {
-  background: #282828;
-  box-shadow: 0 0 3px 3px #333 inset;
+@media (hover: hover) {
+  :host:hover {
+    background: #282828;
+    box-shadow: 0 0 3px 3px #333 inset;
+  }
 }
+
+@media (max-width: 1349px) {
+  :host {
+    height: calc(100% - 10px);
+    margin: 2px;
+    padding: 3px 2px 4px 2px;
+  }
+}
+
+@media (max-width: 1199px) {
+  :host {
+    padding: 3px 2px 4px 5px;
+  }
+}
+
+
+/*   Contents   */
 
 .element-number {
   position: absolute;
@@ -40,9 +62,6 @@
 }
 
 @media (max-width: 1849px) {
-  .element-name {
-    display: none;
-  }
   .element-number {
     font-size: 14px;
   }
@@ -50,14 +69,12 @@
     align-items: flex-end;
     font-size: 22px;
   }
+  .element-name {
+    display: none;
+  }
 }
 
 @media (max-width: 1349px) {
-  :host {
-    height: calc(100% - 10px);
-    margin: 2px;
-    padding: 3px 2px 4px 2px;
-  }
   .element-number {
     right: 6px;
     font-size: 12px;
@@ -68,9 +85,6 @@
 }
 
 @media (max-width: 1199px) {
-  :host {
-    padding: 3px 2px 4px 5px;
-  }
   .element-symbol {
     font-size: 18px;
   }

@@ -1,3 +1,6 @@
+
+/*   Container   */
+
 :host {
   display: flex;
   flex-basis: 100%;
@@ -11,6 +14,9 @@
   padding: 0 10px;
   overflow: hidden;
 }
+
+
+/*   Controls   */
 
 .controls-container {
   display: flex;
@@ -33,6 +39,15 @@
   pointer-events: none;
 }
 
+
+/*   Tables   */
+
+.exceptions-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .table-main {  
   width: min(2400px, 100%);
   border-collapse: collapse;
@@ -43,6 +58,16 @@
   border-collapse: collapse;
 }
 
+.cell-empty {
+  background: none;
+}
+
+.cell-group,
+.cell-period,
+.table-exceptions th {
+  user-select: none;
+}
+
 th {
   padding: 10px;
   background: linear-gradient(-45deg, #242424, #333); 
@@ -51,36 +76,23 @@ th {
   box-shadow: 0 0 2px 2px #111 inset;
 }
 
-.cell-empty {
-  background: none;
-}
-
 td {
-  height: 0;
+  height: 64px;
   background: #181818;
   box-shadow: 0 0 2px 2px #111 inset;
   animation: fadeIn .5s;
 }
 
-.exceptions-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+@media (max-width: 1849px) {
+  td {
+    height: 46px;
+  }
 }
 
-
-.page-overlay {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, .5);
-  animation: fadeIn .3s;
+@media (max-width: 1660px) {
+  td {
+    height: 64px;
+  }
 }
 
 @media (max-width: 1349px) {
@@ -88,9 +100,18 @@ td {
     padding: 6px 8px;
     font-size: 14px;
   }
+  td {
+    height: 50px;
+  }
 }
 
 @media (max-width: 1199px) {
+  td {
+    height: 36px;
+  }
+  .table-exceptions td {
+    height: 53px;
+  }
   .cell-group {
     padding: 10px 5px;
   }
@@ -108,6 +129,9 @@ td {
   .table-exceptions th {
     width: 92px;
   }
+  .table-exceptions td {
+    height: 36px;
+  }
 }
 
 @media (max-width: 599px) {
@@ -119,4 +143,21 @@ td {
   .table-exceptions td {
     width: unset;
   }
+}
+
+
+/*   Overlay   */
+
+.page-overlay {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, .8) 0, rgba(24, 24, 24, .8) 20px, rgba(0, 0, 0, .8) 40px);
+  animation: fadeIn .3s;
 }

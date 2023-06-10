@@ -1,8 +1,14 @@
 
+/*   Container   */
+
 :host {
   display: flex;
   flex-wrap: wrap;
+  animation: fadeIn 1s;
 }
+
+
+/*   Header   */
 
 .main-header {
   display: flex;
@@ -19,9 +25,16 @@
   white-space: pre-wrap;
 }
 
+@media (max-width: 1199px) {
+  .main-header {
+    padding-bottom: 10px;
+  }
+}
+
 @media (max-width: 599px) {
   .main-header {
     flex-wrap: wrap;
+    padding-bottom: 5px;
   }
   .main-header > span {
     flex-basis: 100%;

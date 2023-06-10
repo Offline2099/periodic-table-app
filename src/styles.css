@@ -1,4 +1,6 @@
 
+/*   Defaults & Reset   */
+
 body {
   min-width: 320px;
   background: #111;
@@ -18,11 +20,16 @@ sup, sub {
   font-size: smaller;
 }
 
+
+/*   Animations   */
+
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
 
+
+/*   Visibility   */
 
 @media (max-width: 599px) {
   .invisible-mobile {

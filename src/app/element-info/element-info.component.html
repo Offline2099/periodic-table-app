@@ -1,4 +1,5 @@
 
+<!-- Upper Block -->
 <div class="element-data-wrapper">
   <div class="element-number">{{e.number}}</div>
   <div class="element-name">{{e.name}}</div>
@@ -7,12 +8,14 @@
     (click)="close.emit(null)">X</div>
 </div>
 
+<!-- Lower Block -->
 <div class="element-data-wrapper">
   <div class="element-symbol">{{e.symbol}}</div>
   <div class="element-data-container">
     <div 
-      *ngFor="let d of data"
-      class="element-data-row">
+      *ngFor="let d of data; index as i"
+      class="element-data-row"
+      [ngClass]="{'element-data-row-half' : i < 2}">
       <div class="element-data-property">{{d.property}}</div>
       <div class="element-data-value">
         <span>{{d.value}}</span>

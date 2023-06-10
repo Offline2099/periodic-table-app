@@ -2,6 +2,7 @@
 <!-- Main Table -->
 <table class="table-main">
   <thead>
+    <!-- Controls -->
     <tr class="invisible-desktop-wide">
       <td class="cell-empty"></td>
       <td colspan="9">
@@ -36,6 +37,7 @@
         </div>
       </td>
     </tr>
+    <!-- Group Headers -->
     <tr>
       <td class="cell-empty"></td>
       <th 
@@ -49,6 +51,7 @@
     </tr>
   </thead>
   <tbody>
+    <!-- Periods -->
     <tr *ngFor="let p of arrP">
       <th class="cell-period">Period {{p + 1}}</th>
       <td 
@@ -68,8 +71,9 @@
   </tbody>
 </table>
 
-<!-- Lanthanoides and Actinoides (Mobile) -->
 <div class="exceptions-container">
+
+  <!-- Lanthanoides and Actinoides (Mobile) -->
   <table class="table-exceptions invisible-tablet invisible-desktop-small invisible-desktop-wide">
     <tbody>
       <tr>
