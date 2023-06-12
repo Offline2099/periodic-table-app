@@ -3,6 +3,16 @@
 <div class="element-data-wrapper">
   <div class="element-number">{{e.number}}</div>
   <div class="element-name">{{e.name}}</div>
+  <div class="element-controls">
+    <div 
+      class="element-control-button"
+      [ngClass]="{'element-control-button-disabled': e.number == 1}"
+      (click)="change.emit(e.number - 1)">&#9664;</div>
+    <div 
+      class="element-control-button"
+      [ngClass]="{'element-control-button-disabled': e.number == 118}"
+      (click)="change.emit(e.number + 1)">&#9654;</div>
+  </div>
   <div 
     class="element-close-button"
     (click)="close.emit(null)">X</div>

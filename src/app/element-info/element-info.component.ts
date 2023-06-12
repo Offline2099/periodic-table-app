@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { chemicalElement } from '../data/interfaces';
 
 @Component({
@@ -6,16 +6,21 @@ import { chemicalElement } from '../data/interfaces';
   templateUrl: './element-info.component.html',
   styleUrls: ['./element-info.component.css']
 })
-export class ElementInfoComponent implements OnInit {
+export class ElementInfoComponent implements OnInit, OnChanges {
 
   @Input() e!: chemicalElement;
   @Output() close: EventEmitter<any> = new EventEmitter();
+  @Output() change: EventEmitter<number> = new EventEmitter();
 
   data: any[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.formDataObjects();
+  }
+
+  ngOnChanges(): void {
     this.formDataObjects();
   }
 

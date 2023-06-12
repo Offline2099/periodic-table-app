@@ -221,6 +221,7 @@
     *ngIf="pickedElement"
     [e]="pickedElement"
     (click)="$event.stopPropagation()"
+    (change)="pickElementByNumber($event)"
     (close)="pickElement(undefined)">
   </app-element-info>
 </div>

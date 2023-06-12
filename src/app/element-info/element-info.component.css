@@ -59,6 +59,30 @@
   letter-spacing: 0.04em;
 }
 
+.element-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+  background: #2a2a2a;
+  user-select: none;
+}
+
+.element-control-button {
+  margin: 0 3px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: #333;
+  color: #999;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.element-control-button-disabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
 .element-close-button {
   display: inline-flex;
   padding: 3px 15px;
@@ -70,6 +94,9 @@
 }
 
 @media (hover: hover) {
+  .element-control-button:hover {
+    background: #383838;
+  }
   .element-close-button:hover {
     background: #383838;
   }
@@ -85,6 +112,15 @@
     min-width: 48px;
   }
   .element-name {
+    padding: 3px 10px;
+  }
+  .element-controls {
+    padding-right: 8px;
+  }
+  .element-control-button {
+    padding: 0 5px;
+  }
+  .element-close-button {
     padding: 3px 10px;
   }
 }

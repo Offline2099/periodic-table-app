@@ -68,6 +68,10 @@ export class TableComponent implements OnInit {
     this.pickedElement = element;
   }
 
+  pickElementByNumber(number: number): void {
+    this.pickElement(Elements.find(e => e.number == number));
+  }
+
   setVisibility(mode: number, group: number): void {
 
     let visibilityRange: number;
