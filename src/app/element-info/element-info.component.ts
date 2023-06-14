@@ -13,6 +13,7 @@ export class ElementInfoComponent implements OnInit, OnChanges {
   @Output() change: EventEmitter<number> = new EventEmitter();
 
   data: any[] = [];
+  imageVisible: boolean = true;
 
   constructor() { }
 
@@ -62,6 +63,10 @@ export class ElementInfoComponent implements OnInit, OnChanges {
         unit: this.e.boil >= 0 ? `&deg;C` : ''
       }
     ]
+  }
+
+  toggleImage(): void {
+    this.imageVisible = !this.imageVisible;
   }
 
 }

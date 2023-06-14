@@ -1019,7 +1019,9 @@ export const Elements: chemicalElement[] = [
     density: 8930,
     melt: 302,
     boil: 337,
-    discovery: 1940
+    discovery: 1940,
+    noImage: true,
+    noImageText: 'A sample of the pure element has never been assembled. Any macroscopic specimen would be immediately vaporized by the heat of its radioactivity.'
   },
   {
     number: 86,
@@ -1043,7 +1045,9 @@ export const Elements: chemicalElement[] = [
     density: 2480,
     melt: 8,
     boil: 617,
-    discovery: 1939
+    discovery: 1939,
+    noImage: true,
+    noImageText: 'A sample of the pure element has never been assembled. Any macroscopic specimen would be immediately vaporized by the heat of its radioactivity.'
   },
   {
     number: 88,
@@ -1199,7 +1203,9 @@ export const Elements: chemicalElement[] = [
     density: 9700,
     melt: 852,
     boil: -1,
-    discovery: 1952
+    discovery: 1952,
+    noImage: true,
+    noImageText: 'Although theoretically possible, a sample of pure fermium metal has never been prepared yet.'
   },
   {
     number: 101,
@@ -1211,7 +1217,9 @@ export const Elements: chemicalElement[] = [
     density: 10300,
     melt: 827,
     boil: -1,
-    discovery: 1955
+    discovery: 1955,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 102,
@@ -1223,7 +1231,9 @@ export const Elements: chemicalElement[] = [
     density: 9900,
     melt: 827,
     boil: -1,
-    discovery: 1958
+    discovery: 1958,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 103,
@@ -1235,7 +1245,9 @@ export const Elements: chemicalElement[] = [
     density: 14400,
     melt: 1627,
     boil: -1,
-    discovery: 1961
+    discovery: 1961,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 104,
@@ -1247,7 +1259,9 @@ export const Elements: chemicalElement[] = [
     density: 17000,
     melt: 2127,
     boil: 5527,
-    discovery: 1964
+    discovery: 1964,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 105,
@@ -1259,7 +1273,9 @@ export const Elements: chemicalElement[] = [
     density: 21600,
     melt: -1,
     boil: -1,
-    discovery: 1967
+    discovery: 1967,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 106,
@@ -1271,7 +1287,9 @@ export const Elements: chemicalElement[] = [
     density: 23500,
     melt: -1,
     boil: -1,
-    discovery: 1974
+    discovery: 1974,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 107,
@@ -1283,7 +1301,9 @@ export const Elements: chemicalElement[] = [
     density: 26500,
     melt: -1,
     boil: -1,
-    discovery: 1981
+    discovery: 1981,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 108,
@@ -1295,7 +1315,9 @@ export const Elements: chemicalElement[] = [
     density: 28000,
     melt: -1,
     boil: -1,
-    discovery: 1984
+    discovery: 1984,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 109,
@@ -1307,7 +1329,9 @@ export const Elements: chemicalElement[] = [
     density: 27500,
     melt: -1,
     boil: -1,
-    discovery: 1982
+    discovery: 1982,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 110,
@@ -1319,7 +1343,9 @@ export const Elements: chemicalElement[] = [
     density: 26500,
     melt: -1,
     boil: -1,
-    discovery: 1994
+    discovery: 1994,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 111,
@@ -1331,7 +1357,9 @@ export const Elements: chemicalElement[] = [
     density: 23000,
     melt: -1,
     boil: -1,
-    discovery: 1994
+    discovery: 1994,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 112,
@@ -1343,7 +1371,9 @@ export const Elements: chemicalElement[] = [
     density: 14000,
     melt: 10,
     boil: 67,
-    discovery: 1996
+    discovery: 1996,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 113,
@@ -1355,7 +1385,9 @@ export const Elements: chemicalElement[] = [
     density: 16000,
     melt: 427,
     boil: 1127,
-    discovery: 1998
+    discovery: 1998,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 114,
@@ -1367,7 +1399,9 @@ export const Elements: chemicalElement[] = [
     density: 11400,
     melt: 11,
     boil: -1,
-    discovery: 1999
+    discovery: 1999,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 115,
@@ -1379,7 +1413,9 @@ export const Elements: chemicalElement[] = [
     density: 13500,
     melt: 427,
     boil: 1127,
-    discovery: 2004
+    discovery: 2004,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 116,
@@ -1391,7 +1427,9 @@ export const Elements: chemicalElement[] = [
     density: 12900,
     melt: 427,
     boil: 827,
-    discovery: 2000
+    discovery: 2000,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 117,
@@ -1403,7 +1441,9 @@ export const Elements: chemicalElement[] = [
     density: 7200,
     melt: 427,
     boil: 610,
-    discovery: 2010
+    discovery: 2010,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   },
   {
     number: 118,
@@ -1415,6 +1455,8 @@ export const Elements: chemicalElement[] = [
     density: 7000,
     melt: 52,
     boil: 177,
-    discovery: 1999
+    discovery: 1999,
+    noImage: true,
+    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
   }
 ];
