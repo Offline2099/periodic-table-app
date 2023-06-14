@@ -147,6 +147,7 @@
   border-radius: 10px;
   background: 
     repeating-radial-gradient(#242424 0, #242424 20px, #333 30px, #242424 40px);
+  user-select: none;
 }
 
 .element-image-container.no-image {
@@ -182,6 +183,12 @@
   }
 }
 
+@media (max-width: 899px) and (orientation: landscape) {
+  .element-image-container {
+    display: none;
+  }
+}
+
 @media (max-width: 599px) {
   .element-image-container {
     display: none;
@@ -200,6 +207,7 @@
   background: #333;
   color: #999;
   cursor: pointer;
+  user-select: none;
   transition: .3s;
 }
 
@@ -288,6 +296,12 @@
   }
 }
 
+@media (max-width: 899px) and (orientation: landscape) {
+  .element-image-toggler {
+    display: none;
+  }
+}
+
 @media (max-width: 599px) {
   .element-image-toggler,
   .element-symbol {
@@ -316,4 +330,20 @@
     padding: 4px 10px;
     border-radius: 0 0 4px 4px;
   }
+}
+
+
+/*   Triggering Animations   */
+
+.animation-1,
+.animation-2 {
+  font-size: inherit;
+}
+
+.animation-1 {
+  animation: fadeIn 1s;
+}
+
+.animation-2 {
+  animation: fadeIn2 1s;
 }

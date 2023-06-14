@@ -15,6 +15,8 @@ export class ElementInfoComponent implements OnInit, OnChanges {
   data: any[] = [];
   imageVisible: boolean = true;
 
+  animation: string = 'animation-1';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -63,6 +65,17 @@ export class ElementInfoComponent implements OnInit, OnChanges {
         unit: this.e.boil >= -273 ? `&deg;C` : ''
       }
     ]
+  }
+
+  switchElement(newNumber: number): void {
+    this.change.emit(newNumber);
+    this.triggerAnmation();
+  }
+
+  triggerAnmation(): void {
+    if (this.animation == 'animation-1') 
+      this.animation = 'animation-2';
+    else this.animation = 'animation-1';
   }
 
   toggleImage(): void {
