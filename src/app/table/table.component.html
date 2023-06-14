@@ -183,12 +183,12 @@
   <tbody>
     <tr>
       <th 
-        [ngClass]="{'period-hovered' : periodHovered == -1}"
+        [ngClass]="{'period-hovered' : periodHovered == -1 || periodHovered == 5}"
         (mouseenter)="periodHovered = -1"
         (mouseleave)="periodHovered = undefined">Lanthanoides<br />(Period&nbsp;6)</th>
       <td 
         *ngFor="let e of arrLanthanoides"
-        [ngClass]="{'period-hovered' : periodHovered == -1}">
+        [ngClass]="{'period-hovered' : periodHovered == -1 || periodHovered == 5}">
         <app-element
           [e]="e"
           (click)="pickElement(e)">
@@ -197,12 +197,12 @@
     </tr>
     <tr>
       <th
-        [ngClass]="{'period-hovered' : periodHovered == -2}"
+        [ngClass]="{'period-hovered' : periodHovered == -2 || periodHovered == 6}"
         (mouseenter)="periodHovered = -2"
         (mouseleave)="periodHovered = undefined">Actinoides<br />(Period&nbsp;7)</th>
       <td 
         *ngFor="let e of arrActinoides"
-        [ngClass]="{'period-hovered' : periodHovered == -2}">
+        [ngClass]="{'period-hovered' : periodHovered == -2 || periodHovered == 6}">
         <app-element
           [e]="e"
           (click)="pickElement(e)">
