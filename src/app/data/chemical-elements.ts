@@ -1202,7 +1202,7 @@ export const Elements: chemicalElement[] = [
     weight: 257,
     density: 9700,
     melt: 852,
-    boil: -1,
+    boil: -274,
     discovery: 1952,
     noImage: true,
     noImageText: 'Although theoretically possible, a sample of pure fermium metal has never been prepared yet.'
@@ -1216,7 +1216,7 @@ export const Elements: chemicalElement[] = [
     weight: 258,
     density: 10300,
     melt: 827,
-    boil: -1,
+    boil: -274,
     discovery: 1955,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1230,7 +1230,7 @@ export const Elements: chemicalElement[] = [
     weight: 259,
     density: 9900,
     melt: 827,
-    boil: -1,
+    boil: -274,
     discovery: 1958,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1244,7 +1244,7 @@ export const Elements: chemicalElement[] = [
     weight: 266,
     density: 14400,
     melt: 1627,
-    boil: -1,
+    boil: -274,
     discovery: 1961,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1271,8 +1271,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 268,
     density: 21600,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1967,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1285,8 +1285,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 269,
     density: 23500,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1974,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1299,8 +1299,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 270,
     density: 26500,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1981,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1313,8 +1313,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 269,
     density: 28000,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1984,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1327,8 +1327,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 278,
     density: 27500,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1982,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1341,8 +1341,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 281,
     density: 26500,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1994,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1355,8 +1355,8 @@ export const Elements: chemicalElement[] = [
     period: 7,
     weight: 282,
     density: 23000,
-    melt: -1,
-    boil: -1,
+    melt: -274,
+    boil: -274,
     discovery: 1994,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
@@ -1398,7 +1398,7 @@ export const Elements: chemicalElement[] = [
     weight: 289,
     density: 11400,
     melt: 11,
-    boil: -1,
+    boil: -274,
     discovery: 1999,
     noImage: true,
     noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'

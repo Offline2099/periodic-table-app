@@ -54,13 +54,13 @@ export class ElementInfoComponent implements OnInit, OnChanges {
       },
       {
         property: 'Melting temperature',
-        value: this.e.melt >= 0 ? this.e.melt : 'Unknown',
-        unit: this.e.melt >= 0 ? `&deg;C` : ''
+        value: this.e.melt >= -273 ? this.e.melt : 'Unknown',
+        unit: this.e.melt >= -273 ? `&deg;C` : ''
       },
       {
         property: 'Boiling temperature',
-        value: this.e.boil >= 0 ? this.e.boil : 'Unknown',
-        unit: this.e.boil >= 0 ? `&deg;C` : ''
+        value: this.e.boil >= -273 ? this.e.boil : 'Unknown',
+        unit: this.e.boil >= -273 ? `&deg;C` : ''
       }
     ]
   }
