@@ -102,36 +102,32 @@
 <div class="exceptions-container">
 
   <!-- Lanthanoides and Actinoides (Mobile) -->
-  <table class="table-exceptions invisible-tablet invisible-desktop-small invisible-desktop-wide">
-    <tbody>
-      <tr>
-        <th colspan="2">Lanthanoides<br />(Period&nbsp;6)</th>
-      </tr>
-      <tr *ngFor="let row of arrExc">
-        <td *ngFor="let e of arrLanthanoides | slice:(2 * row):(2 * row + 2)">
-          <app-element
-            [e]="e"
-            (click)="pickElement(e)">
-          </app-element>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="table-exceptions invisible-tablet invisible-desktop-small invisible-desktop-wide">
-    <tbody>
-      <tr>
-        <th colspan="2">Actinoides<br />(Period&nbsp;6)</th>
-      </tr>
-      <tr *ngFor="let row of arrExc">
-        <td *ngFor="let e of arrActinoides | slice:(2 * row):(2 * row + 2)">
-          <app-element
-            [e]="e"
-            (click)="pickElement(e)">
-          </app-element>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div 
+    class="exceptions-container-mobile invisible-tablet invisible-desktop-small invisible-desktop-wide"
+    [ngClass]="{'exceptions-container-mobile-collapsed': exceptionsContainerMobileCollapsed}">
+    <div 
+      class="exceptions-container-mobile-header"
+      (click)="toggleExceptionsContainerMobile()">Lanthanoides and Actinoides</div>
+    <div class="exceptions-container-mobile-body">    
+      <table 
+        *ngFor="let t of ['Lanthanoides', 'Actinoides']; index as i"
+        class="table-exceptions">
+        <tbody>
+          <tr>
+            <th colspan="2">{{t}}<br />(Period&nbsp;{{6 + i}})</th>
+          </tr>
+          <tr *ngFor="let row of arrExc">
+            <td *ngFor="let e of (!i ? arrLanthanoides : arrActinoides) | slice:(2 * row):(2 * row + 2)">
+              <app-element
+                [e]="e"
+                (click)="pickElement(e)">
+              </app-element>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
   <!-- Lanthanoides and Actinoides (Tablet) -->
   <table class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">

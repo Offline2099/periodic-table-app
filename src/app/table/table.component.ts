@@ -39,6 +39,8 @@ export class TableComponent implements OnInit {
   arrButtonsTablet = [0, 6, 12];
   arrButtonsDesktopSmall = [0, 9];
 
+  exceptionsContainerMobileCollapsed = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -118,6 +120,11 @@ export class TableComponent implements OnInit {
     if (newStart >= 0 && newStart <= 18 - increment) {
       this.setVisibility(mode, newStart);
     }
+  }
+
+  toggleExceptionsContainerMobile(): void {
+    this.exceptionsContainerMobileCollapsed = 
+      !this.exceptionsContainerMobileCollapsed;
   }
 
 }
