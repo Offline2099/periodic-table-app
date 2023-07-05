@@ -92,7 +92,7 @@
         <app-element
           *ngIf="arrTable[p][g]"
           [e]="arrTable[p][g]!"
-          (click)="pickElement(arrTable[p][g]!)">
+          (click)="pickElement(arrTable[p][g])">
         </app-element>
       </td>
     </tr>
@@ -130,19 +130,13 @@
   </div>
 
   <!-- Lanthanoides and Actinoides (Tablet) -->
-  <table class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">
+  <table 
+    *ngFor="let t of ['Lanthanoides', 'Actinoides']; index as i"
+    class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">
     <tbody>
-      <tr>
-        <th rowspan="2">Lanthanoides<br />(Period&nbsp;6)</th>
-        <td *ngFor="let e of arrLanthanoides | slice:0:7">
-          <app-element
-            [e]="e"
-            (click)="pickElement(e)">
-          </app-element>
-        </td>
-      </tr>
-      <tr>
-        <td *ngFor="let e of arrLanthanoides | slice:7">
+      <tr *ngFor="let row of [0, 1]">
+        <th *ngIf="!row" rowspan="2">{{t}}<br />(Period&nbsp;{{6 + i}})</th>
+        <td *ngFor="let e of (!i ? arrLanthanoides : arrActinoides) | slice:(!row ? 0 : 7):(!row ? 7 : 14)">
           <app-element
             [e]="e"
             (click)="pickElement(e)">
@@ -151,54 +145,20 @@
       </tr>
     </tbody>
   </table>
-  <table class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">
-    <tbody>
-      <tr>
-        <th rowspan="2">Actinoides<br />(Period&nbsp;7)</th>
-        <td *ngFor="let e of arrActinoides | slice:0:7">
-          <app-element
-            [e]="e"
-            (click)="pickElement(e)">
-          </app-element>
-        </td>
-      </tr>
-      <tr>
-        <td *ngFor="let e of arrActinoides | slice:7">
-          <app-element
-            [e]="e"
-            (click)="pickElement(e)">
-          </app-element>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
 </div>
 
 <!-- Lanthanoides and Actinoides (Desktop) -->
 <table class="table-exceptions invisible-mobile invisible-tablet">
   <tbody>
-    <tr>
+    <tr *ngFor="let row of ['Lanthanoides', 'Actinoides']; index as i">
       <th 
-        [ngClass]="{'period-hovered' : periodHovered == -1 || periodHovered == 5}"
-        (mouseenter)="periodHovered = -1"
-        (mouseleave)="periodHovered = undefined">Lanthanoides<br />(Period&nbsp;6)</th>
+        [ngClass]="{'period-hovered' : periodHovered == -(i + 1) || periodHovered == 5 + i}"
+        (mouseenter)="periodHovered = -(i + 1)"
+        (mouseleave)="periodHovered = undefined">{{row}}<br />(Period&nbsp;{{6 + i}})</th>
       <td 
-        *ngFor="let e of arrLanthanoides"
-        [ngClass]="{'period-hovered' : periodHovered == -1 || periodHovered == 5}">
-        <app-element
-          [e]="e"
-          (click)="pickElement(e)">
-        </app-element>
-      </td>
-    </tr>
-    <tr>
-      <th
-        [ngClass]="{'period-hovered' : periodHovered == -2 || periodHovered == 6}"
-        (mouseenter)="periodHovered = -2"
-        (mouseleave)="periodHovered = undefined">Actinoides<br />(Period&nbsp;7)</th>
-      <td 
-        *ngFor="let e of arrActinoides"
-        [ngClass]="{'period-hovered' : periodHovered == -2 || periodHovered == 6}">
+        *ngFor="let e of (!i ? arrLanthanoides : arrActinoides)"
+        [ngClass]="{'period-hovered' : periodHovered == -(i + 1) || periodHovered == 5 + i}">
         <app-element
           [e]="e"
           (click)="pickElement(e)">

@@ -10,22 +10,17 @@ import { Elements } from '../data/chemical-elements';
 })
 export class TableComponent implements OnInit {
 
-  arrP: number[] = [...Array(7).keys()];
-  arrG: number[] = [...Array(18).keys()];
-  arrExc: number[] = [...Array(7).keys()];
+  arrP: number[] = this.consecutiveNumbers(7);
+  arrG: number[] = this.consecutiveNumbers(18);
+  arrExc: number[] = this.consecutiveNumbers(7);
 
   arrTable: Array<chemicalElement | undefined>[] = [];
   arrLanthanoides: chemicalElement[] = [];
   arrActinoides: chemicalElement[] = [];
 
-  pickedElement: chemicalElement | undefined;
-
-  periodHovered: number | undefined;
-  groupHovered: number | undefined;
-
-  visibilityMobile = 3;
-  visibilityTablet = 6;
-  visibilityDesktopSmall = 9;
+  visibilityMobile: number = 3;
+  visibilityTablet: number = 6;
+  visibilityDesktopSmall: number = 9;
 
   visibilityWindowStartMobile: number = 0;
   visibilityWindowStartTablet: number = 0;
@@ -35,11 +30,16 @@ export class TableComponent implements OnInit {
   arrVisibilityTablet: boolean[][] = [];
   arrVisibilityDesktopSmall: boolean[][] = [];
 
-  arrButtonsMobile = [0, 3, 6, 9, 12, 15];
-  arrButtonsTablet = [0, 6, 12];
-  arrButtonsDesktopSmall = [0, 9];
+  arrButtonsMobile: number[] = [0, 3, 6, 9, 12, 15];
+  arrButtonsTablet: number[] = [0, 6, 12];
+  arrButtonsDesktopSmall: number[] = [0, 9];
 
   exceptionsContainerMobileCollapsed = true;
+
+  periodHovered: number | undefined;
+  groupHovered: number | undefined;
+
+  pickedElement: chemicalElement | undefined;
 
   constructor() { }
 
@@ -48,6 +48,10 @@ export class TableComponent implements OnInit {
     this.setVisibility(1, this.visibilityWindowStartMobile);
     this.setVisibility(2, this.visibilityWindowStartTablet);
     this.setVisibility(3, this.visibilityWindowStartDesktopSmall);
+  }
+
+  consecutiveNumbers(n: number): number[] {
+    return [...Array(n).keys()];
   }
 
   constructTable(): void {
@@ -64,14 +68,6 @@ export class TableComponent implements OnInit {
     // Lanthanoides and Actinoides
     this.arrLanthanoides = Elements.filter(e => e.group == -1);
     this.arrActinoides = Elements.filter(e => e.group == -2);
-  }
-
-  pickElement(element: chemicalElement | undefined): void {
-    this.pickedElement = element;
-  }
-
-  pickElementByNumber(number: number): void {
-    this.pickElement(Elements.find(e => e.number == number));
   }
 
   setVisibility(mode: number, group: number): void {
@@ -127,4 +123,12 @@ export class TableComponent implements OnInit {
       !this.exceptionsContainerMobileCollapsed;
   }
 
+  pickElement(element: chemicalElement | undefined): void {
+    this.pickedElement = element;
+  }
+
+  pickElementByNumber(number: number): void {
+    this.pickElement(Elements.find(e => e.number == number));
+  }
+  
 }
