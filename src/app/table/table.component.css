@@ -246,6 +246,7 @@ td {
   align-items: flex-start;
   justify-content: center;
   position: fixed;
+  overflow-y: auto;
   top: 0;
   left: 0;
   z-index: 1000;

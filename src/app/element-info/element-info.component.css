@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   flex-basis: 800px;
   margin-top: 50px;
+  margin-bottom: 50px;
   background: #242424;
   border-radius: 10px;
   overflow: hidden;
@@ -17,9 +18,10 @@
   }
 }
 
-@media (max-width: 899px) and (orientation: landscape) {
+@media (max-width: 899px) {
   :host {
-    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -183,15 +185,11 @@
   }
 }
 
-@media (max-width: 899px) and (orientation: landscape) {
-  .element-image-container {
-    display: none;
-  }
-}
-
 @media (max-width: 599px) {
   .element-image-container {
-    display: none;
+    width: calc(100% - 10px);
+    height: unset;
+    aspect-ratio: 4/3;
   }
 }
 
@@ -293,12 +291,6 @@
   .element-data-property,
   .element-data-value {
     font-size: 15px;
-  }
-}
-
-@media (max-width: 899px) and (orientation: landscape) {
-  .element-image-toggler {
-    display: none;
   }
 }
 
