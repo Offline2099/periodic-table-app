@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { chemicalElement } from '../data/interfaces';
+import { ChemicalElement } from '../data/interfaces';
 import { Elements } from '../data/chemical-elements';
 
 import { UtilityService } from '../utility.service';
@@ -18,9 +18,9 @@ export class TableComponent implements OnInit, AfterViewInit {
   arrG: number[] = this.u.consecutiveNumbers(18);
   arrExc: number[] = this.u.consecutiveNumbers(7);
 
-  arrTable: Array<chemicalElement | undefined>[] = [];
-  arrLanthanoides: chemicalElement[] = [];
-  arrActinoides: chemicalElement[] = [];
+  arrTable: Array<ChemicalElement | undefined>[] = [];
+  arrLanthanoides: ChemicalElement[] = [];
+  arrActinoides: ChemicalElement[] = [];
 
   v = {
     mobile: {start: 0, range: 3, end: 2, bp: [0]},
@@ -33,7 +33,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   periodHovered: number | undefined;
   groupHovered: number | undefined;
 
-  pickedElement: chemicalElement | undefined;
+  pickedElement: ChemicalElement | undefined;
 
   ngOnInit(): void {
     this.constructTable();
@@ -48,7 +48,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     // Main Table 
     this.arrP.forEach(p => {
-      let period: Array<chemicalElement | undefined> = [];
+      let period: Array<ChemicalElement | undefined> = [];
       this.arrG.forEach(g => {
         period.push(Elements.find(e => e.period == p + 1 && e.group == g + 1));
       });
@@ -109,7 +109,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       !this.exceptionsContainerMobileCollapsed;
   }
 
-  pickElement(element: chemicalElement | undefined): void {
+  pickElement(element: ChemicalElement | undefined): void {
     this.pickedElement = element;
   }
 

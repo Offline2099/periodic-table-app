@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { chemicalElement } from '../data/interfaces';
+import { ChemicalElement } from '../data/interfaces';
 
 @Component({
   selector: 'app-element-info',
@@ -8,7 +8,7 @@ import { chemicalElement } from '../data/interfaces';
 })
 export class ElementInfoComponent implements OnInit, OnChanges {
 
-  @Input() e!: chemicalElement;
+  @Input() e!: ChemicalElement;
   @Output() close: EventEmitter<any> = new EventEmitter();
   @Output() change: EventEmitter<number> = new EventEmitter();
 

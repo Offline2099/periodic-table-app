@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { chemicalElement } from '../data/interfaces';
+import { ChemicalElement } from '../data/interfaces';
 
 @Component({
   selector: 'app-element',
@@ -8,7 +8,7 @@ import { chemicalElement } from '../data/interfaces';
 })
 export class ElementComponent implements OnInit {
 
-  @Input() e!: chemicalElement;
+  @Input() e!: ChemicalElement;
 
   constructor() { }
 

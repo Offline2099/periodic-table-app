@@ -1,4 +1,4 @@
-export interface chemicalElement {
+export interface ChemicalElement {
   number: number;
   symbol: string;
   name: string;

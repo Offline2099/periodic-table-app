@@ -1,6 +1,6 @@
-import { chemicalElement } from './interfaces'
+import { ChemicalElement } from './interfaces'
 
-export const Elements: chemicalElement[] = [
+export const Elements: ChemicalElement[] = [
   {
     number: 1,
     symbol: 'H',
@@ -1205,7 +1205,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1952,
     noImage: true,
-    noImageText: 'Although theoretically possible, a sample of pure fermium metal has never been prepared yet.'
+    noImageText: 'Although theoretically possible, a sample of pure fermium has never been prepared yet.'
   },
   {
     number: 101,
@@ -1219,7 +1219,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1955,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 102,
@@ -1233,7 +1233,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1958,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 103,
@@ -1247,7 +1247,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1961,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 104,
@@ -1261,7 +1261,7 @@ export const Elements: chemicalElement[] = [
     boil: 5527,
     discovery: 1964,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 105,
@@ -1275,7 +1275,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1967,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 106,
@@ -1289,7 +1289,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1974,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 107,
@@ -1303,7 +1303,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1981,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 108,
@@ -1317,7 +1317,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1984,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 109,
@@ -1331,7 +1331,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1982,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 110,
@@ -1345,7 +1345,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1994,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 111,
@@ -1359,7 +1359,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1994,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 112,
@@ -1373,7 +1373,7 @@ export const Elements: chemicalElement[] = [
     boil: 67,
     discovery: 1996,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 113,
@@ -1387,7 +1387,7 @@ export const Elements: chemicalElement[] = [
     boil: 1127,
     discovery: 1998,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 114,
@@ -1401,7 +1401,7 @@ export const Elements: chemicalElement[] = [
     boil: -274,
     discovery: 1999,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 115,
@@ -1415,7 +1415,7 @@ export const Elements: chemicalElement[] = [
     boil: 1127,
     discovery: 2004,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 116,
@@ -1429,7 +1429,7 @@ export const Elements: chemicalElement[] = [
     boil: 827,
     discovery: 2000,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 117,
@@ -1443,7 +1443,7 @@ export const Elements: chemicalElement[] = [
     boil: 610,
     discovery: 2010,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   },
   {
     number: 118,
@@ -1457,6 +1457,6 @@ export const Elements: chemicalElement[] = [
     boil: 177,
     discovery: 1999,
     noImage: true,
-    noImageText: 'No macroscopic samples exist. The element can only be produced in particle accelerators.'
+    noImageText: 'The element can only be produced in particle accelerators.'
   }
 ];

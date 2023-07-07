@@ -7,7 +7,9 @@
   <div class="element-name">
     <span class="{{animation}}">{{e.name}}</span>
   </div>
-  <div class="element-controls">
+  <div
+    class="element-controls"
+    [ngClass]="{'invisible-desktop-wide': imageVisible}">
     <div 
       class="element-control-button"
       [ngClass]="{'element-control-button-disabled': e.number == 1}"
@@ -18,8 +20,8 @@
       (click)="switchElement(e.number + 1)">&#9654;</div>
   </div>
   <div 
-    class="element-close-button"
-    (click)="close.emit(null)">X</div>
+    class="element-info-close-button"
+    (click)="close.emit(null)">&#10005;</div>
 </div>
 
 <!-- Middle Block (Image) -->
@@ -29,13 +31,24 @@
   <div 
     class="element-image-container {{animation}}"
     [ngClass]="{'no-image': e.noImage}">
-    <div 
-      *ngIf="e.noImage"
-      class="element-no-image-text">{{e.noImageText || 'No sample image available.'}}</div>
+    <ng-container *ngIf="e.noImage">
+      <div class="element-no-image-text">No samples exist.</div>
+      <div class="element-no-image-text">{{e.noImageText || ' '}}</div>
+    </ng-container>
     <img
       *ngIf="!e.noImage"
       src="./assets/img/elements/{{e.number}}.jpg">
   </div>
+  <ng-container *ngIf="imageVisible">
+    <div 
+      class="element-control-button button-large button-left"
+      [ngClass]="{'element-control-button-disabled': e.number == 1}"
+      (click)="switchElement(e.number - 1)">&#9664;</div>
+    <div 
+      class="element-control-button button-large button-right"
+      [ngClass]="{'element-control-button-disabled': e.number == 118}"
+      (click)="switchElement(e.number + 1)">&#9654;</div>
+  </ng-container>
 </div>
 
 <!-- Lower Block (Data) -->
@@ -43,8 +56,8 @@
   <div 
     class="element-image-toggler"
     (click)="toggleImage()">
-    <span *ngIf="imageVisible">&#9650;</span>
-    <span *ngIf="!imageVisible">&#9660;</span>
+    <span *ngIf="imageVisible">&#9650; Hide Sample</span>
+    <span *ngIf="!imageVisible">&#9660; Show Sample</span>
   </div>
   <div class="element-symbol">
     <span class="{{animation}}">{{e.symbol}}</span>
