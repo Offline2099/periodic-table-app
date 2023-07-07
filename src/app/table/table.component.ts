@@ -3,6 +3,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { chemicalElement } from '../data/interfaces';
 import { Elements } from '../data/chemical-elements';
 
+import { UtilityService } from '../utility.service';
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -10,9 +12,11 @@ import { Elements } from '../data/chemical-elements';
 })
 export class TableComponent implements OnInit, AfterViewInit {
 
-  arrP: number[] = this.consecutiveNumbers(7);
-  arrG: number[] = this.consecutiveNumbers(18);
-  arrExc: number[] = this.consecutiveNumbers(7);
+  constructor(private u: UtilityService) { }
+
+  arrP: number[] = this.u.consecutiveNumbers(7);
+  arrG: number[] = this.u.consecutiveNumbers(18);
+  arrExc: number[] = this.u.consecutiveNumbers(7);
 
   arrTable: Array<chemicalElement | undefined>[] = [];
   arrLanthanoides: chemicalElement[] = [];
@@ -22,7 +26,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     mobile: {start: 0, range: 3, end: 2, bp: [0]},
     tablet: {start: 0, range: 6, end: 5, bp: [0]},
     desktop: {start: 0, range: 9, end: 8, bp: [0]}
-  }
+  };
 
   exceptionsContainerMobileCollapsed = true;
 
@@ -31,8 +35,6 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   pickedElement: chemicalElement | undefined;
 
-  constructor() { }
-
   ngOnInit(): void {
     this.constructTable();
     this.calculateVisibilityBreakpoints();
@@ -40,14 +42,6 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.preLoadImages();
-  }
-
-  consecutiveNumbers(n: number): number[] {
-    return [...Array(n).keys()];
-  }
-
-  multipliedConsecutiveNumbers(n: number, factor: number): number[] {
-    return [...Array(n).keys()].map(e => factor * e);
   }
 
   constructTable(): void {
@@ -69,7 +63,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   calculateVisibilityBreakpoints(): void {
 
     let calcBP = (n: number) => {
-      return this.multipliedConsecutiveNumbers(18 / n, n);
+      return this.u.multipliedConsecutiveNumbers(18 / n, n);
     }
 
     this.v.mobile.bp = calcBP(this.v.mobile.range);

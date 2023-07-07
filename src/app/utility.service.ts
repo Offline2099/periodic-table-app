@@ -1,0 +1,17 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UtilityService {
+
+  constructor() { }
+
+  consecutiveNumbers(n: number): number[] {
+    return [...Array(n).keys()];
+  }
+
+  multipliedConsecutiveNumbers(n: number, factor: number): number[] {
+    return [...Array(n).keys()].map(e => factor * e);
+  }
+}
