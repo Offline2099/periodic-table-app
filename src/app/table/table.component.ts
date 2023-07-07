@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { chemicalElement } from '../data/interfaces';
 import { Elements } from '../data/chemical-elements';
@@ -8,7 +8,7 @@ import { Elements } from '../data/chemical-elements';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, AfterViewInit {
 
   arrP: number[] = this.consecutiveNumbers(7);
   arrG: number[] = this.consecutiveNumbers(18);
@@ -48,6 +48,10 @@ export class TableComponent implements OnInit {
     this.setVisibility(1, this.visibilityWindowStartMobile);
     this.setVisibility(2, this.visibilityWindowStartTablet);
     this.setVisibility(3, this.visibilityWindowStartDesktopSmall);
+  }
+
+  ngAfterViewInit(): void {
+    this.preLoadImages();
   }
 
   consecutiveNumbers(n: number): number[] {
@@ -129,6 +133,15 @@ export class TableComponent implements OnInit {
 
   pickElementByNumber(number: number): void {
     this.pickElement(Elements.find(e => e.number == number));
+  }
+
+  preLoadImages(): void {
+    Elements.forEach(e => {
+      if (!e.noImage) {
+        let img = new Image();
+        img.src = './assets/img/elements/' + e.number + '.jpg';
+      }
+    });
   }
   
 }

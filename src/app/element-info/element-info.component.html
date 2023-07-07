@@ -33,7 +33,7 @@
       *ngIf="e.noImage"
       class="element-no-image-text">{{e.noImageText || 'No sample image available.'}}</div>
     <img
-      *ngIf="e.noImage != true"
+      *ngIf="!e.noImage"
       src="./assets/img/elements/{{e.number}}.jpg">
   </div>
 </div>
