@@ -7,52 +7,52 @@
       <td class="cell-empty"></td>
       <td colspan="9">
         <!-- Mobile -->
-        <div class="controls-container invisible-tablet invisible-desktop-small invisible-desktop-wide">
+        <div class="controls-container invisible-tablet invisible-desktop">
           <div 
             class="controls-button"
-            [ngClass]="{'controls-button-disabled': !visibilityWindowStartMobile}"
-            (click)="changeVisibilityWindow(1, -visibilityMobile)">&#9664;</div>
+            [ngClass]="{'controls-button-disabled': !v.mobile.start}"
+            (click)="shiftVisibility(1, -v.mobile.range)">&#9664;</div>
           <div 
-            *ngFor="let b of arrButtonsMobile"
+            *ngFor="let b of v.mobile.bp"
             class="controls-button controls-button-tiny"
-            [ngClass]="{'controls-button-selected': visibilityWindowStartMobile == b}"
+            [ngClass]="{'controls-button-selected': v.mobile.start == b}"
             (click)="setVisibility(1, b)"></div>
           <div 
             class="controls-button"
-            [ngClass]="{'controls-button-disabled': visibilityWindowStartMobile >= 15}"
-            (click)="changeVisibilityWindow(1, visibilityMobile)">&#9654;</div>
+            [ngClass]="{'controls-button-disabled': v.mobile.start >= 15}"
+            (click)="shiftVisibility(1, v.mobile.range)">&#9654;</div>
         </div>
         <!-- Tablet -->
-        <div class="controls-container invisible-mobile invisible-desktop-small invisible-desktop-wide">
+        <div class="controls-container invisible-mobile invisible-desktop">
           <div 
             class="controls-button "
-            [ngClass]="{'controls-button-disabled': !visibilityWindowStartTablet}"
-            (click)="changeVisibilityWindow(2, -visibilityTablet)">&#9664;</div>
+            [ngClass]="{'controls-button-disabled': !v.tablet.start}"
+            (click)="shiftVisibility(2, -v.tablet.range)">&#9664;</div>
           <div 
-            *ngFor="let b of arrButtonsTablet"
+            *ngFor="let b of v.tablet.bp"
             class="controls-button"
-            [ngClass]="{'controls-button-selected': visibilityWindowStartTablet == b}"
-            (click)="setVisibility(2, b)">Groups {{b + 1}} &hellip; {{b + visibilityTablet}}</div>
+            [ngClass]="{'controls-button-selected': v.tablet.start == b}"
+            (click)="setVisibility(2, b)">Groups {{b + 1}} &hellip; {{b + v.tablet.range}}</div>
           <div 
             class="controls-button"
-            [ngClass]="{'controls-button-disabled': visibilityWindowStartTablet >= 12}"
-            (click)="changeVisibilityWindow(2, visibilityTablet)">&#9654;</div>
+            [ngClass]="{'controls-button-disabled': v.tablet.start >= 12}"
+            (click)="shiftVisibility(2, v.tablet.range)">&#9654;</div>
         </div>
         <!-- Small Desktop -->
         <div class="controls-container invisible-mobile invisible-tablet invisible-desktop-wide">
           <div 
             class="controls-button"
-            [ngClass]="{'controls-button-disabled': !visibilityWindowStartDesktopSmall}"
-            (click)="changeVisibilityWindow(3, -visibilityDesktopSmall)">&#9664;</div>
+            [ngClass]="{'controls-button-disabled': !v.desktop.start}"
+            (click)="shiftVisibility(3, -v.desktop.range)">&#9664;</div>
           <div 
-            *ngFor="let b of arrButtonsDesktopSmall"
+            *ngFor="let b of v.desktop.bp"
             class="controls-button"
-            [ngClass]="{'controls-button-selected': visibilityWindowStartDesktopSmall == b}"
-            (click)="setVisibility(3, b)">Groups {{b + 1}} &hellip; {{b + visibilityDesktopSmall}}</div>
+            [ngClass]="{'controls-button-selected': v.desktop.start == b}"
+            (click)="setVisibility(3, b)">Groups {{b + 1}} &hellip; {{b + v.desktop.range}}</div>
           <div 
             class="controls-button"
-            [ngClass]="{'controls-button-disabled': visibilityWindowStartDesktopSmall >= 9}"
-            (click)="changeVisibilityWindow(3, visibilityDesktopSmall)">&#9654;</div>
+            [ngClass]="{'controls-button-disabled': v.desktop.start >= 9}"
+            (click)="shiftVisibility(3, v.desktop.range)">&#9654;</div>
         </div>
       </td>
     </tr>
@@ -63,9 +63,9 @@
         *ngFor="let g of arrG"
         class="cell-group" 
         [ngClass]="{
-          'invisible-mobile': !arrVisibilityMobile[0][g],
-          'invisible-tablet': !arrVisibilityTablet[0][g],
-          'invisible-desktop-small': !arrVisibilityDesktopSmall[0][g],
+          'invisible-mobile': g < v.mobile.start || g > v.mobile.end,
+          'invisible-tablet': g < v.tablet.start || g > v.tablet.end,
+          'invisible-desktop-small': g < v.desktop.start || g > v.desktop.end,
           'group-hovered': groupHovered == g
         }"
         (mouseenter)="groupHovered = g"
@@ -83,9 +83,9 @@
       <td 
         *ngFor="let g of arrG"
         [ngClass]="{
-          'invisible-mobile': !arrVisibilityMobile[p][g],
-          'invisible-tablet': !arrVisibilityTablet[p][g],
-          'invisible-desktop-small': !arrVisibilityDesktopSmall[p][g],
+          'invisible-mobile': g < v.mobile.start || g > v.mobile.end,
+          'invisible-tablet': g < v.tablet.start || g > v.tablet.end,
+          'invisible-desktop-small': g < v.desktop.start || g > v.desktop.end,
           'group-hovered': groupHovered == g,
           'period-hovered': periodHovered == p
         }">
@@ -103,7 +103,7 @@
 
   <!-- Lanthanoides and Actinoides (Mobile) -->
   <div 
-    class="exceptions-container-mobile invisible-tablet invisible-desktop-small invisible-desktop-wide"
+    class="exceptions-container-mobile invisible-tablet invisible-desktop"
     [ngClass]="{'exceptions-container-mobile-collapsed': exceptionsContainerMobileCollapsed}">
     <div 
       class="exceptions-container-mobile-header"
@@ -132,7 +132,7 @@
   <!-- Lanthanoides and Actinoides (Tablet) -->
   <table 
     *ngFor="let t of ['Lanthanoides', 'Actinoides']; index as i"
-    class="table-exceptions invisible-mobile invisible-desktop-small invisible-desktop-wide">
+    class="table-exceptions invisible-mobile invisible-desktop">
     <tbody>
       <tr *ngFor="let row of [0, 1]">
         <th *ngIf="!row" rowspan="2">{{t}}<br />(Period&nbsp;{{6 + i}})</th>

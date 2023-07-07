@@ -18,21 +18,11 @@ export class TableComponent implements OnInit, AfterViewInit {
   arrLanthanoides: chemicalElement[] = [];
   arrActinoides: chemicalElement[] = [];
 
-  visibilityMobile: number = 3;
-  visibilityTablet: number = 6;
-  visibilityDesktopSmall: number = 9;
-
-  visibilityWindowStartMobile: number = 0;
-  visibilityWindowStartTablet: number = 0;
-  visibilityWindowStartDesktopSmall: number = 0;
-
-  arrVisibilityMobile: boolean[][] = [];
-  arrVisibilityTablet: boolean[][] = [];
-  arrVisibilityDesktopSmall: boolean[][] = [];
-
-  arrButtonsMobile: number[] = [0, 3, 6, 9, 12, 15];
-  arrButtonsTablet: number[] = [0, 6, 12];
-  arrButtonsDesktopSmall: number[] = [0, 9];
+  v = {
+    mobile: {start: 0, range: 3, end: 2, bp: [0]},
+    tablet: {start: 0, range: 6, end: 5, bp: [0]},
+    desktop: {start: 0, range: 9, end: 8, bp: [0]}
+  }
 
   exceptionsContainerMobileCollapsed = true;
 
@@ -45,9 +35,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.constructTable();
-    this.setVisibility(1, this.visibilityWindowStartMobile);
-    this.setVisibility(2, this.visibilityWindowStartTablet);
-    this.setVisibility(3, this.visibilityWindowStartDesktopSmall);
+    this.calculateVisibilityBreakpoints();
   }
 
   ngAfterViewInit(): void {
@@ -56,6 +44,10 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   consecutiveNumbers(n: number): number[] {
     return [...Array(n).keys()];
+  }
+
+  multipliedConsecutiveNumbers(n: number, factor: number): number[] {
+    return [...Array(n).keys()].map(e => factor * e);
   }
 
   constructTable(): void {
@@ -74,48 +66,44 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.arrActinoides = Elements.filter(e => e.group == -2);
   }
 
-  setVisibility(mode: number, group: number): void {
+  calculateVisibilityBreakpoints(): void {
 
-    let visibilityRange: number;
+    let calcBP = (n: number) => {
+      return this.multipliedConsecutiveNumbers(18 / n, n);
+    }
+
+    this.v.mobile.bp = calcBP(this.v.mobile.range);
+    this.v.tablet.bp = calcBP(this.v.tablet.range);
+    this.v.desktop.bp = calcBP(this.v.desktop.range);
+  }
+
+  setVisibility(mode: number, start: number): void {
 
     if (mode == 1) {
-      this.arrVisibilityMobile = [];
-      this.visibilityWindowStartMobile = group;
-      visibilityRange = this.visibilityMobile;
+      this.v.mobile.start = start;
+      this.v.mobile.end = start + this.v.mobile.range - 1;
     }
 
     if (mode == 2) {
-      this.arrVisibilityTablet = [];
-      this.visibilityWindowStartTablet = group;
-      visibilityRange = this.visibilityTablet;
+      this.v.tablet.start = start;
+      this.v.tablet.end = start + this.v.tablet.range - 1;
     }
 
     if (mode == 3) {
-      this.arrVisibilityDesktopSmall = [];
-      this.visibilityWindowStartDesktopSmall = group;
-      visibilityRange = this.visibilityDesktopSmall;
+      this.v.desktop.start = start;
+      this.v.desktop.end = start + this.v.desktop.range - 1;
     }
-
-    this.arrP.forEach(p => {
-      let period: boolean[] = [];
-      this.arrG.forEach(g => {
-        period.push(g >= group && g <= group + visibilityRange - 1);
-      });
-      if (mode == 1) this.arrVisibilityMobile.push(period);
-      if (mode == 2) this.arrVisibilityTablet.push(period);
-      if (mode == 3) this.arrVisibilityDesktopSmall.push(period);
-    });
   }
 
-  changeVisibilityWindow(mode: number, increment: number): void {
+  shiftVisibility(mode: number, increment: number): void {
 
-    let visibilityWindowStart: number = 0;
+    let start: number = 0;
 
-    if (mode == 1) visibilityWindowStart = this.visibilityWindowStartMobile;
-    if (mode == 2) visibilityWindowStart = this.visibilityWindowStartTablet;
-    if (mode == 3) visibilityWindowStart = this.visibilityWindowStartDesktopSmall;
+    if (mode == 1) start = this.v.mobile.start;
+    if (mode == 2) start = this.v.tablet.start;
+    if (mode == 3) start = this.v.desktop.start;
 
-    let newStart = visibilityWindowStart + increment;
+    let newStart = start + increment;
 
     if (newStart >= 0 && newStart <= 18 - increment) {
       this.setVisibility(mode, newStart);

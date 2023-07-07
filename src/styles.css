@@ -48,6 +48,12 @@ sup, sub {
   }
 }
 
+@media (min-width: 900px) {
+  .invisible-desktop {
+    display: none !important;
+  }
+}
+
 @media (min-width: 900px) and (max-width: 1199px) {
   .invisible-desktop-small {
     display: none !important;
