@@ -14,4 +14,9 @@ export class UtilityService {
   multipliedConsecutiveNumbers(n: number, factor: number): number[] {
     return [...Array(n).keys()].map(e => factor * e);
   }
+
+  isNumeric(val: any): boolean {
+    return !(val instanceof Array) && (val - parseFloat(val) + 1) >= 0;
+  }
+
 }

@@ -1,4 +1,4 @@
-import { ChemicalElement } from './interfaces'
+import { ChemicalElement } from './interfaces';
 
 export const Elements: ChemicalElement[] = [
   {

@@ -67,7 +67,21 @@
       *ngFor="let d of data; index as i"
       class="element-data-row"
       [ngClass]="{'element-data-row-half' : i < 2}">
-      <div class="element-data-property">{{d.property}}</div>
+      <div class="element-data-property">
+        {{d.name}}
+        <div class="element-data-property-hint">?
+          <div 
+            class="element-data-property-hint-block"
+            [ngClass]="{
+              'element-data-property-hint-block-under': !imageVisible && i < 2,
+              'element-data-property-hint-block-wide': !imageVisible && d.description.length > 2
+            }">
+            <div
+              *ngFor="let text of d.description"
+              class="element-data-property-hint-text">{{text}}</div>
+          </div>
+        </div>
+      </div>
       <div class="element-data-value">
         <span class="{{animation}}">
           <span>{{d.value}}</span>

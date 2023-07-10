@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { ChemicalElement } from '../data/interfaces';
+
+import { ChemicalElement, DataProperty, DataObject } from '../data/interfaces';
+import { Properties } from '../data/property-descriptions';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-element-info',
@@ -8,19 +11,18 @@ import { ChemicalElement } from '../data/interfaces';
 })
 export class ElementInfoComponent implements OnInit, OnChanges {
 
+  constructor(private u: UtilityService) { }
+
   @Input() e!: ChemicalElement;
   @Output() close: EventEmitter<any> = new EventEmitter();
   @Output() change: EventEmitter<number> = new EventEmitter();
 
-  data: any[] = [];
+  data: DataObject[] = [];
   imageVisible: boolean = true;
 
   animation: string = 'animation-1';
 
-  constructor() { }
-
   ngOnInit(): void {
-    this.formDataObjects();
   }
 
   ngOnChanges(): void {
@@ -28,43 +30,43 @@ export class ElementInfoComponent implements OnInit, OnChanges {
   }
 
   formDataObjects(): void {
-    this.data = [
-      {
-        property: 'Period',
-        value: this.e.period || '??'
-      },
-      {
-        property: 'Group',
-        value: 
-          this.e.group > 0 ? this.e.group : 
-            this.e.group == -1 ? 'Lanthanoides' :
-              this.e.group == -2 ? 'Actinoides' : '??'
-      },
-      {
-        property: 'Year of discovery',
-        value: this.e.discovery || 'Ancient times'
-      },
-      {
-        property: 'Standard atomic weight',
-        value: this.e.weight || '??',
-        unit: this.e.weight ? `Da` : ''
-      },
-      {
-        property: 'Density',
-        value: this.e.density || '??',
-        unit: this.e.density ? `kg/m<sup>3</sup>` : ''
-      },
-      {
-        property: 'Melting temperature',
-        value: this.e.melt >= -273 ? this.e.melt : 'Unknown',
-        unit: this.e.melt >= -273 ? `&deg;C` : ''
-      },
-      {
-        property: 'Boiling temperature',
-        value: this.e.boil >= -273 ? this.e.boil : 'Unknown',
-        unit: this.e.boil >= -273 ? `&deg;C` : ''
-      }
-    ]
+
+    this.data = [];
+
+    Properties.forEach((p, i) => {
+
+      let val: string | number = this.fillDataValue(i + 1);
+
+      this.data.push({
+        name: p.name,
+        unit: this.u.isNumeric(val) ? p.unit : '',
+        description: p.description,
+        value: val
+      });
+    });
+  }
+
+  fillDataValue(id: number): string | number {
+    switch (id) {
+      case 1:
+        return this.e.period || 'N/A';
+      case 2:
+        return this.e.group > 0 ? this.e.group : 
+          this.e.group == -1 ? 'Lanthanoides' :
+            this.e.group == -2 ? 'Actinoides' : 'N/A';
+      case 3:
+        return this.e.discovery || 'Ancient times';
+      case 4:
+        return this.e.weight || 'N/A';
+      case 5:
+        return this.e.density || 'N/A';
+      case 6:
+        return this.e.melt >= -273 ? this.e.melt : 'Unknown';
+      case 7:
+        return this.e.boil >= -273 ? this.e.boil : 'Unknown';
+      default: 
+        return 0;
+    }
   }
 
   switchElement(newNumber: number): void {
