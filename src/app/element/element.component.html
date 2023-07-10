@@ -1,3 +1,33 @@
+
+<!-- Cell Contents -->
 <div class="element-number">{{e.number}}</div>
 <div class="element-symbol">{{e.symbol}}</div>
 <div class="element-name">{{e.name}}</div>
+
+<!-- Block Displayed on Hover -->
+<div 
+  class="element-hover-container"
+  [ngClass]="{
+    'appear-down': e.period <= 3 && ((e.group > 1 && e.group < 16) || e.group < 0),
+    'appear-down-right': e.period <= 3 && e.group == 1,
+    'appear-down-left': e.period <= 3 && e.group >= 16,
+    'appear-up': 
+      e.period > 3 && ((e.group > 1 && e.group < 16) || e.group < 0) 
+        && e.number != 70 && e.number != 102,
+    'appear-up-right': e.period > 3 && e.group == 1 ,
+    'appear-up-left': (e.period > 3 && e.group >= 16) || e.number == 70 || e.number == 102
+  }">
+  <div class="element-hover-header">
+    <span class="element-hover-number">{{e.number}}</span>
+    <span class="element-hover-name">{{e.name}}</span>
+  </div>
+  <div class="element-hover-image">
+    <div 
+      *ngIf="e.noImage"
+      class="element-hover-no-image">No sample<br/>images exist</div>
+    <img 
+      *ngIf="!e.noImage"
+      src="./assets/img/elements/{{e.number}}.jpg">
+  </div>
+  
+</div>
