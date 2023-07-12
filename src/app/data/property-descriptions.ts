@@ -1,4 +1,4 @@
-import { DataProperty } from './interfaces';
+import { DataProperty } from './_interfaces';
 
 export const Properties: DataProperty[] = [
   {
@@ -28,7 +28,7 @@ export const Properties: DataProperty[] = [
     name: 'Density',
     unit: `kg/m<sup>3</sup>`,
     description: [
-      'The mass of the pure element per unit volume.',
+      'The mass of the substance of the pure element per unit volume.',
       'For some elements this value is only known from theoretical calculations.'
     ]
   },

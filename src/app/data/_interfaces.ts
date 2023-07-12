@@ -22,3 +22,16 @@ export interface DataProperty {
 export interface DataObject extends DataProperty {
   value: string | number;
 }
+
+export interface VisibilityWindow {
+  start: number;
+  range: number;
+  end:  number;
+  breakpoints: number[];
+}
+
+export interface TableVisibility {
+  mobile: VisibilityWindow;
+  tablet: VisibilityWindow;
+  desktop: VisibilityWindow;
+}

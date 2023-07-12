@@ -1,11 +1,11 @@
 
-<!-- Upper Block (Header) -->
+<!-- Header Block -->
 <div class="element-data-wrapper">
   <div class="element-number">
-    <span class="{{animation}}">{{e.number}}</span>
+    <span class="ani-{{ani}}">{{e.number}}</span>
   </div>
   <div class="element-name">
-    <span class="{{animation}}">{{e.name}}</span>
+    <span class="ani-{{ani}}">{{e.name}}</span>
   </div>
   <div
     class="element-controls"
@@ -24,12 +24,12 @@
     (click)="close.emit(null)">&#10005;</div>
 </div>
 
-<!-- Middle Block (Image) -->
+<!-- Image Block -->
 <div 
   class="element-data-wrapper"
   [ngClass]="{'wrapper-collapsed': !imageVisible}">
   <div 
-    class="element-image-container {{animation}}"
+    class="element-image-container ani-{{ani}}"
     [ngClass]="{'no-image': e.noImage}">
     <ng-container *ngIf="e.noImage">
       <div class="element-no-image-text">No samples exist.</div>
@@ -51,7 +51,7 @@
   </ng-container>
 </div>
 
-<!-- Lower Block (Data) -->
+<!-- Data Block -->
 <div class="element-data-wrapper">
   <div 
     class="element-image-toggler"
@@ -60,7 +60,7 @@
     <span *ngIf="!imageVisible">&#9660; Show Sample</span>
   </div>
   <div class="element-symbol">
-    <span class="{{animation}}">{{e.symbol}}</span>
+    <span class="ani-{{ani}}">{{e.symbol}}</span>
   </div>
   <div class="element-data-container">
     <div 
@@ -83,7 +83,7 @@
         </div>
       </div>
       <div class="element-data-value">
-        <span class="{{animation}}">
+        <span class="ani-{{ani}}">
           <span>{{d.value}}</span>
           <span 
             *ngIf="d.unit"

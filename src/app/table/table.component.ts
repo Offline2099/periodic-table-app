@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { ChemicalElement } from '../data/interfaces';
+import { ChemicalElement, VisibilityWindow, TableVisibility } from '../data/_interfaces';
 import { Elements } from '../data/chemical-elements';
+import * as C from '../data/table-constants';
 
 import { UtilityService } from '../utility.service';
 
@@ -14,19 +15,15 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   constructor(private u: UtilityService) { }
 
-  arrP: number[] = this.u.consecutiveNumbers(7);
-  arrG: number[] = this.u.consecutiveNumbers(18);
-  arrExc: number[] = this.u.consecutiveNumbers(7);
+  arrP: number[] = this.u.consecutiveNumbers(C.TotalPeriods);
+  arrG: number[] = this.u.consecutiveNumbers(C.TotalGroups);
 
   arrTable: Array<ChemicalElement | undefined>[] = [];
-  arrLanthanoides: ChemicalElement[] = [];
-  arrActinoides: ChemicalElement[] = [];
+  arrLanthanides: ChemicalElement[] = [];
+  arrActinides: ChemicalElement[] = [];
 
-  v = {
-    mobile: {start: 0, range: 3, end: 2, bp: [0]},
-    tablet: {start: 0, range: 6, end: 5, bp: [0]},
-    desktop: {start: 0, range: 9, end: 8, bp: [0]}
-  };
+  v!: TableVisibility;
+  ani: number = 1;
 
   exceptionsContainerMobileCollapsed = true;
 
@@ -37,7 +34,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.constructTable();
-    this.calculateVisibilityBreakpoints();
+    this.calculateVisibilityRanges();
   }
 
   ngAfterViewInit(): void {
@@ -46,7 +43,6 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   constructTable(): void {
 
-    // Main Table 
     this.arrP.forEach(p => {
       let period: Array<ChemicalElement | undefined> = [];
       this.arrG.forEach(g => {
@@ -55,20 +51,33 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.arrTable.push(period);
     });
 
-    // Lanthanoides and Actinoides
-    this.arrLanthanoides = Elements.filter(e => e.group == -1);
-    this.arrActinoides = Elements.filter(e => e.group == -2);
+    this.arrLanthanides = Elements.filter(e => e.group == C.GroupLanthanides);
+    this.arrActinides = Elements.filter(e => e.group == C.GroupActinides);
   }
 
-  calculateVisibilityBreakpoints(): void {
+  calculateVisibilityRanges(): void {
 
-    let calcBP = (n: number) => {
-      return this.u.multipliedConsecutiveNumbers(18 / n, n);
+    const PartsMobile: number = 6;
+    const PartsTablet: number = 3;
+    const PartsDesktop: number = 2;
+
+    let calcRanges = (nOfParts: number): VisibilityWindow => {
+
+      let range: number = C.TotalGroups / nOfParts;
+
+      return {
+        start: 0,
+        range: range, 
+        end: range - 1,
+        breakpoints: this.u.multipliedConsecutiveNumbers(nOfParts, range)
+      }
     }
 
-    this.v.mobile.bp = calcBP(this.v.mobile.range);
-    this.v.tablet.bp = calcBP(this.v.tablet.range);
-    this.v.desktop.bp = calcBP(this.v.desktop.range);
+    this.v = {
+      mobile: calcRanges(PartsMobile),
+      tablet: calcRanges(PartsTablet),
+      desktop: calcRanges(PartsDesktop)
+    }
   }
 
   setVisibility(mode: number, start: number): void {
@@ -77,16 +86,16 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.v.mobile.start = start;
       this.v.mobile.end = start + this.v.mobile.range - 1;
     }
-
     if (mode == 2) {
       this.v.tablet.start = start;
       this.v.tablet.end = start + this.v.tablet.range - 1;
     }
-
     if (mode == 3) {
       this.v.desktop.start = start;
       this.v.desktop.end = start + this.v.desktop.range - 1;
     }
+
+    this.triggerCellAnmation();
   }
 
   shiftVisibility(mode: number, increment: number): void {
@@ -99,9 +108,13 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     let newStart = start + increment;
 
-    if (newStart >= 0 && newStart <= 18 - increment) {
+    if (newStart >= 0 && newStart <= C.TotalGroups - increment) {
       this.setVisibility(mode, newStart);
     }
+  }
+
+  triggerCellAnmation(): void {
+    this.ani = this.ani == 1 ? 2 : 1;
   }
 
   toggleExceptionsContainerMobile(): void {

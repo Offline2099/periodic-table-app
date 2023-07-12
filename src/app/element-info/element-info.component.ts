@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
-import { ChemicalElement, DataProperty, DataObject } from '../data/interfaces';
+import { ChemicalElement, DataObject } from '../data/_interfaces';
 import { Properties } from '../data/property-descriptions';
 import { UtilityService } from '../utility.service';
 
@@ -20,7 +20,7 @@ export class ElementInfoComponent implements OnInit, OnChanges {
   data: DataObject[] = [];
   imageVisible: boolean = true;
 
-  animation: string = 'animation-1';
+  ani: number = 1;
 
   ngOnInit(): void {
   }
@@ -52,8 +52,8 @@ export class ElementInfoComponent implements OnInit, OnChanges {
         return this.e.period || 'N/A';
       case 2:
         return this.e.group > 0 ? this.e.group : 
-          this.e.group == -1 ? 'Lanthanoides' :
-            this.e.group == -2 ? 'Actinoides' : 'N/A';
+          this.e.group == -1 ? 'Lanthanides' :
+            this.e.group == -2 ? 'Actinides' : 'N/A';
       case 3:
         return this.e.discovery || 'Ancient times';
       case 4:
@@ -61,11 +61,11 @@ export class ElementInfoComponent implements OnInit, OnChanges {
       case 5:
         return this.e.density || 'N/A';
       case 6:
-        return this.e.melt >= -273 ? this.e.melt : 'Unknown';
+        return this.e.melt > -274 ? this.e.melt : 'Unknown';
       case 7:
-        return this.e.boil >= -273 ? this.e.boil : 'Unknown';
+        return this.e.boil > -274 ? this.e.boil : 'Unknown';
       default: 
-        return 0;
+        return 'N/A';
     }
   }
 
@@ -75,9 +75,7 @@ export class ElementInfoComponent implements OnInit, OnChanges {
   }
 
   triggerAnmation(): void {
-    if (this.animation == 'animation-1') 
-      this.animation = 'animation-2';
-    else this.animation = 'animation-1';
+    this.ani = this.ani == 1 ? 2 : 1;
   }
 
   toggleImage(): void {

@@ -20,7 +20,6 @@
 @media (max-width: 899px) {
   :host {
     margin-top: 20px;
-    margin-bottom: 20px;
   }
 }
 
@@ -468,15 +467,15 @@
 
 /*   Triggering Animations   */
 
-.animation-1,
-.animation-2 {
+.ani-1,
+.ani-2 {
   font-size: inherit;
 }
 
-.animation-1 {
+.ani-1 {
   animation: fadeIn 1s;
 }
 
-.animation-2 {
+.ani-2 {
   animation: fadeIn2 1s;
 }

@@ -1,4 +1,20 @@
-import { ChemicalElement } from './interfaces';
+import { ChemicalElement } from './_interfaces';
+
+/**
+ *  Data values used for convenience:
+ * 
+ *  • For all lanthanides, the group is set to -1.
+ *  • For all actinides, the group is set to -2.
+ *  • For elements known since ancient times, the year of discovery is set to 0.
+ *  • If the melting or boiling temperature is unknown, it is set to -274.
+ *  
+ **/
+
+const NoImageReasons: string[] = [
+  'A sample of the pure element has never been assembled. Any macroscopic specimen would be immediately vaporized by the heat of its radioactivity.',
+  'Although theoretically possible, a sample of pure element has never been prepared yet.',
+  'The element can only be produced in particle accelerators.'
+];
 
 export const Elements: ChemicalElement[] = [
   {
@@ -8,7 +24,7 @@ export const Elements: ChemicalElement[] = [
     group: 1,
     period: 1,
     weight: 1.008,
-    density: 0.08988,
+    density: 0.0898,
     melt: -258.99,
     boil: -252.72,
     discovery: 1776
@@ -21,7 +37,7 @@ export const Elements: ChemicalElement[] = [
     period: 1,
     weight: 4.0026,
     density: 0.1785,
-    melt: -273,
+    melt: -273.15,
     boil: -268.78,
     discovery: 1895
   },
@@ -33,8 +49,8 @@ export const Elements: ChemicalElement[] = [
     period: 2,
     weight: 6.94,
     density: 534,
-    melt: 180.69,
-    boil: 1287,
+    melt: 181,
+    boil: 1342,
     discovery: 1817
   },
   {
@@ -93,7 +109,7 @@ export const Elements: ChemicalElement[] = [
     period: 2,
     weight: 15.999,
     density: 1.429,
-    melt: -218.64,
+    melt: -218.6,
     boil: -182.8,
     discovery: 1774
   },
@@ -129,7 +145,7 @@ export const Elements: ChemicalElement[] = [
     period: 3,
     weight: 22.99,
     density: 968,
-    melt: 97.87,
+    melt: 98,
     boil: 883,
     discovery: 1807
   },
@@ -153,7 +169,7 @@ export const Elements: ChemicalElement[] = [
     period: 3,
     weight: 26.982,
     density: 2700,
-    melt: 660.47,
+    melt: 660,
     boil: 2519,
     discovery: 1825
   },
@@ -177,7 +193,7 @@ export const Elements: ChemicalElement[] = [
     period: 3,
     weight: 30.974,
     density: 1823,
-    melt: 44.3,
+    melt: 44,
     boil: 277,
     discovery: 1669
   },
@@ -189,8 +205,8 @@ export const Elements: ChemicalElement[] = [
     period: 3,
     weight: 32.06,
     density: 2070,
-    melt: 115.36,
-    boil: 444.87,
+    melt: 115,
+    boil: 445,
     discovery: 0
   },
   {
@@ -202,7 +218,7 @@ export const Elements: ChemicalElement[] = [
     weight: 35.45,
     density: 3.2,
     melt: -101.4,
-    boil: -33.89,
+    boil: -33.9,
     discovery: 1774
   },
   {
@@ -225,7 +241,7 @@ export const Elements: ChemicalElement[] = [
     period: 4,
     weight: 39.098,
     density: 890,
-    melt: 63.53,
+    melt: 63.5,
     boil: 759,
     discovery: 1807
   },
@@ -345,7 +361,7 @@ export const Elements: ChemicalElement[] = [
     period: 4,
     weight: 63.546,
     density: 8960,
-    melt: 1084.77,
+    melt: 1085,
     boil: 2562,
     discovery: 0
   },
@@ -357,7 +373,7 @@ export const Elements: ChemicalElement[] = [
     period: 4,
     weight: 65.38,
     density: 7140,
-    melt: 419.88,
+    melt: 420,
     boil: 907,
     discovery: 1746
   },
@@ -369,7 +385,7 @@ export const Elements: ChemicalElement[] = [
     period: 4,
     weight: 69.723,
     density: 5910,
-    melt: 29.9146,
+    melt: 29.9,
     boil: 2400,
     discovery: 1886
   },
@@ -381,7 +397,7 @@ export const Elements: ChemicalElement[] = [
     period: 4,
     weight: 72.63,
     density: 5323,
-    melt: 938.4,
+    melt: 938,
     boil: 2833,
     discovery: 1886
   },
@@ -416,7 +432,7 @@ export const Elements: ChemicalElement[] = [
     group: 17,
     period: 4,
     weight: 79.904,
-    density: 3102.8,
+    density: 3103,
     melt: -7.2,
     boil: 59,
     discovery: 1825
@@ -441,7 +457,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 85.468,
     density: 1532,
-    melt: 39.46,
+    melt: 39.5,
     boil: 688,
     discovery: 1861
   },
@@ -549,7 +565,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 106.42,
     density: 12023,
-    melt: 1555.05,
+    melt: 1555,
     boil: 2963,
     discovery: 1803
   },
@@ -561,7 +577,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 107.87,
     density: 10490,
-    melt: 961.93,
+    melt: 962,
     boil: 2162,
     discovery: 0
   },
@@ -573,7 +589,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 112.41,
     density: 8650,
-    melt: 321.22,
+    melt: 321,
     boil: 767,
     discovery: 1817
   },
@@ -585,7 +601,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 114.82,
     density: 7310,
-    melt: 156.75,
+    melt: 157,
     boil: 2072,
     discovery: 1863
   },
@@ -597,7 +613,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 118.71,
     density: 7265,
-    melt: 232.08,
+    melt: 232,
     boil: 2602,
     discovery: 0
   },
@@ -609,7 +625,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 121.76,
     density: 6697,
-    melt: 630.78,
+    melt: 631,
     boil: 1587,
     discovery: 0
   },
@@ -621,7 +637,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 127.6,
     density: 6240,
-    melt: 449.66,
+    melt: 450,
     boil: 988,
     discovery: 1782
   },
@@ -633,7 +649,7 @@ export const Elements: ChemicalElement[] = [
     period: 5,
     weight: 126.9,
     density: 4933,
-    melt: 113.85,
+    melt: 113.8,
     boil: 184.4,
     discovery: 1811
   },
@@ -646,7 +662,7 @@ export const Elements: ChemicalElement[] = [
     weight: 131.29,
     density: 5.894,
     melt: -111.6,
-    boil: -107.97,
+    boil: -107.9,
     discovery: 1898
   },
   {
@@ -657,7 +673,7 @@ export const Elements: ChemicalElement[] = [
     period: 6,
     weight: 132.91,
     density: 1930,
-    melt: 28.59,
+    melt: 28.6,
     boil: 671,
     discovery: 1860
   },
@@ -933,7 +949,7 @@ export const Elements: ChemicalElement[] = [
     period: 6,
     weight: 195.08,
     density: 21450,
-    melt: 1768.4,
+    melt: 1768,
     boil: 3825,
     discovery: 1735
   },
@@ -945,7 +961,7 @@ export const Elements: ChemicalElement[] = [
     period: 6,
     weight: 196.97,
     density: 19300,
-    melt: 1064.33,
+    melt: 1064,
     boil: 2856,
     discovery: 0
   },
@@ -981,7 +997,7 @@ export const Elements: ChemicalElement[] = [
     period: 6,
     weight: 207.2,
     density: 11340,
-    melt: 327.61,
+    melt: 328,
     boil: 1749,
     discovery: 0
   },
@@ -993,7 +1009,7 @@ export const Elements: ChemicalElement[] = [
     period: 6,
     weight: 208.98,
     density: 9780,
-    melt: 271.7,
+    melt: 272,
     boil: 1564,
     discovery: 1400
   },
@@ -1021,7 +1037,7 @@ export const Elements: ChemicalElement[] = [
     boil: 337,
     discovery: 1940,
     noImage: true,
-    noImageText: 'A sample of the pure element has never been assembled. Any macroscopic specimen would be immediately vaporized by the heat of its radioactivity.'
+    noImageText: NoImageReasons[0]
   },
   {
     number: 86,
@@ -1031,7 +1047,7 @@ export const Elements: ChemicalElement[] = [
     period: 6,
     weight: 222,
     density: 9.73,
-    melt: -71,
+    melt: -71.1,
     boil: -61.7,
     discovery: 1900
   },
@@ -1047,7 +1063,7 @@ export const Elements: ChemicalElement[] = [
     boil: 617,
     discovery: 1939,
     noImage: true,
-    noImageText: 'A sample of the pure element has never been assembled. Any macroscopic specimen would be immediately vaporized by the heat of its radioactivity.'
+    noImageText: NoImageReasons[0]
   },
   {
     number: 88,
@@ -1105,7 +1121,7 @@ export const Elements: ChemicalElement[] = [
     period: 7,
     weight: 238.03,
     density: 19100,
-    melt: 1132.3,
+    melt: 1132,
     boil: 4131,
     discovery: 1789
   },
@@ -1129,7 +1145,7 @@ export const Elements: ChemicalElement[] = [
     period: 7,
     weight: 244,
     density: 19850,
-    melt: 639.5,
+    melt: 639,
     boil: 3228,
     discovery: 1940
   },
@@ -1205,7 +1221,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1952,
     noImage: true,
-    noImageText: 'Although theoretically possible, a sample of pure fermium has never been prepared yet.'
+    noImageText: NoImageReasons[1]
   },
   {
     number: 101,
@@ -1219,7 +1235,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1955,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 102,
@@ -1233,7 +1249,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1958,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 103,
@@ -1247,7 +1263,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1961,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 104,
@@ -1261,7 +1277,7 @@ export const Elements: ChemicalElement[] = [
     boil: 5527,
     discovery: 1964,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 105,
@@ -1275,7 +1291,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1967,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 106,
@@ -1289,7 +1305,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1974,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 107,
@@ -1303,7 +1319,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1981,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 108,
@@ -1317,7 +1333,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1984,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 109,
@@ -1331,7 +1347,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1982,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 110,
@@ -1345,7 +1361,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1994,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 111,
@@ -1359,7 +1375,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1994,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 112,
@@ -1373,7 +1389,7 @@ export const Elements: ChemicalElement[] = [
     boil: 67,
     discovery: 1996,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 113,
@@ -1387,7 +1403,7 @@ export const Elements: ChemicalElement[] = [
     boil: 1127,
     discovery: 1998,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 114,
@@ -1401,7 +1417,7 @@ export const Elements: ChemicalElement[] = [
     boil: -274,
     discovery: 1999,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 115,
@@ -1415,7 +1431,7 @@ export const Elements: ChemicalElement[] = [
     boil: 1127,
     discovery: 2004,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 116,
@@ -1429,7 +1445,7 @@ export const Elements: ChemicalElement[] = [
     boil: 827,
     discovery: 2000,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 117,
@@ -1443,7 +1459,7 @@ export const Elements: ChemicalElement[] = [
     boil: 610,
     discovery: 2010,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   },
   {
     number: 118,
@@ -1457,6 +1473,6 @@ export const Elements: ChemicalElement[] = [
     boil: 177,
     discovery: 1999,
     noImage: true,
-    noImageText: 'The element can only be produced in particle accelerators.'
+    noImageText: NoImageReasons[2]
   }
 ];
