@@ -10,25 +10,29 @@
 
         <!-- Mobile (3 groups visible) -->
         <div class="controls-container invisible-tablet invisible-desktop-small">
-          <div 
-            class="controls-button controls-button-l"
-            [ngClass]="{'controls-button-disabled': !v.mobile.start}"
-            (click)="shiftVisibility(1, -1)">&#9664;</div>
           <div class="controls-sub-container">
+            <div class="controls-sub-container-row">Show groups:</div>
             <div 
-              *ngFor="let row of [0, 1, 2]"
+              *ngFor="let row of [0, 1]"
               class="controls-sub-container-row">
               <div 
-                *ngFor="let b of v.mobile.breakpoints | slice:(2 * row):(2 * row + 2)"
+                *ngFor="let b of v.mobile.breakpoints | slice:(3 * row):(3 * row + 3)"
                 class="controls-button"
                 [ngClass]="{'controls-button-selected': v.mobile.start == b}"
-                (click)="setVisibility(1, b)">Gr. {{b + 1}}&hairsp;&hellip;&hairsp;{{b + v.mobile.range}}</div>
+                (click)="setVisibility(1, b)">{{b + 1}}&hairsp;&hellip;&hairsp;{{b + v.mobile.range}}</div>
             </div>
           </div>
-          <div 
-            class="controls-button controls-button-r"
-            [ngClass]="{'controls-button-disabled': v.mobile.end == 17}"
-            (click)="shiftVisibility(1, 1)">&#9654;</div>
+          <div class="controls-sub-container">
+            <div class="controls-sub-container-row">&nbsp;</div>
+            <div 
+              class="controls-button controls-button-l"
+              [ngClass]="{'controls-button-disabled': !v.mobile.start}"
+              (click)="shiftVisibility(1, -1)">&#9664;</div>
+            <div 
+              class="controls-button controls-button-r"
+              [ngClass]="{'controls-button-disabled': v.mobile.end == 17}"
+              (click)="shiftVisibility(1, 1)">&#9654;</div>
+          </div>
         </div>
 
         <!-- Tablet (6 groups visible) -->
