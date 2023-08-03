@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
-import { ChemicalElement, DataObject } from '../data/_interfaces';
+import { ChemicalElement, DataObject } from '../interfaces';
 import { Properties } from '../data/property-descriptions';
 import { UtilityService } from '../utility.service';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ChemicalElement } from '../data/_interfaces';
+import { ChemicalElement } from '../interfaces';
 
 @Component({
   selector: 'app-element',

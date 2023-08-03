@@ -1,4 +1,4 @@
-import { DataProperty } from './_interfaces';
+import { DataProperty } from '../interfaces';
 
 export const Properties: DataProperty[] = [
   {

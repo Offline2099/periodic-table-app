@@ -1,4 +1,4 @@
-import { ChemicalElement } from './_interfaces';
+import { ChemicalElement } from '../interfaces';
 
 /**
  *  Data values used for convenience:

@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { ChemicalElement, VisibilityWindow, TableVisibility } from '../data/_interfaces';
+import { ChemicalElement, VisibilityWindow, TableVisibility } from '../interfaces';
 import { Elements } from '../data/chemical-elements';
 import * as C from '../data/table-constants';
 

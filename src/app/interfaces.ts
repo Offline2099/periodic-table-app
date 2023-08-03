@@ -1,3 +1,6 @@
+
+// Elements
+
 export interface ChemicalElement {
   number: number;
   symbol: string;
@@ -13,6 +16,9 @@ export interface ChemicalElement {
   noImageText?: string;
 }
 
+
+// Element Data
+
 export interface DataProperty {
   name: string;
   unit: string;
@@ -22,6 +28,9 @@ export interface DataProperty {
 export interface DataObject extends DataProperty {
   value: string | number;
 }
+
+
+// Table UI
 
 export interface VisibilityWindow {
   start: number;
