@@ -2,6 +2,7 @@
 /*   Container   */
 
 :host {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -15,8 +16,11 @@
   display: flex;
   flex-basis: 100%;
   justify-content: center;
-  padding: 20px 5px;
-  background: #181818;
+  padding: 18px 5px 22px 5px;
+  background: #282828;
+  background-image: url('../assets/img/decorative/hexagonal-tile.png');
+  background-size: 56px;
+  box-shadow: 0 0 3px 3px #2a2a2a inset;
 }
 
 .main-header-text {
@@ -35,6 +39,7 @@
 @media (max-width: 1199px) {
   .main-header-container {
     padding: 15px 5px;
+    background-size: 48px;
   }
   .main-header-text {
     font-size: 24px;
@@ -67,7 +72,10 @@
 .footer {
   display: flex;
   flex-basis: 100%;
-  min-height: 80px;
+  min-height: 60px;
   margin-top: auto;
-  background: #181818;
+  background: #282828;
+  background-image: url('../assets/img/decorative/hexagonal-tile.png');
+  background-size: 48px;
+  box-shadow: 0 0 3px 3px #2a2a2a inset;
 }

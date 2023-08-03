@@ -44,3 +44,15 @@ export interface TableVisibility {
   tablet: VisibilityWindow;
   desktop: VisibilityWindow;
 }
+
+
+// Decorative
+
+export interface AnimationElement {
+  text: string;
+  position: {
+    x: number; y: number;
+  }
+  direction: string;
+  delay: number;
+}

@@ -1,0 +1,11 @@
+<div
+  *ngFor="let e of a"
+  class="animation-line"
+  style="
+    top: {{e.position.x}}%; 
+    left: {{e.position.y}}%;
+    animation: {{e.direction}} 30000ms linear infinite;
+    animation-delay: {{e.delay}}s;
+  "
+  [innerHTML]='e.text'>
+</div>
