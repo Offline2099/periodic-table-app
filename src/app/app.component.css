@@ -3,7 +3,8 @@
 
 :host {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 100vh;
   animation: fadeIn 1s;
 }
 
@@ -58,4 +59,15 @@
   .main-header-text:last-of-type {
     font-size: 18px;
   }
+}
+
+
+/*   Footer   */
+
+.footer {
+  display: flex;
+  flex-basis: 100%;
+  min-height: 80px;
+  margin-top: auto;
+  background: #181818;
 }
