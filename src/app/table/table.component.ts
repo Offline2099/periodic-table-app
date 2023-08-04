@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 
 import { ChemicalElement, VisibilityWindow, TableVisibility } from '../interfaces';
 import { Elements } from '../data/chemical-elements';
@@ -14,6 +14,8 @@ import { UtilityService } from '../utility.service';
 export class TableComponent implements OnInit, AfterViewInit {
 
   constructor(private u: UtilityService) { }
+
+  @Output() toggleOverlay = new EventEmitter<void>();
 
   arrP: number[] = this.u.consecutiveNumbers(C.TotalPeriods);
   arrG: number[] = this.u.consecutiveNumbers(C.TotalGroups);
@@ -123,7 +125,9 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   pickElement(element: ChemicalElement | undefined): void {
+    let previous: ChemicalElement | undefined = this.pickedElement;
     this.pickedElement = element;
+    if (!previous || !element) this.toggleOverlay.emit();
   }
 
   pickElementByNumber(number: number): void {

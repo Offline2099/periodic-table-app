@@ -26,6 +26,7 @@
 .main-header-text {
   display: flex;
   justify-content: center;
+  color: #97b7b7;
   font-size: 26px;
   letter-spacing: .02em;
   text-shadow: 1px 1px #111;
@@ -33,7 +34,7 @@
 }
 
 .main-header-text:last-of-type {
-  color: #999;
+  color: #88a8a8;
 }
 
 @media (max-width: 1199px) {

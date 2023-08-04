@@ -6,10 +6,15 @@
 </h1>
 
 <!-- Table -->
-<app-table></app-table>
+<app-table
+  (toggleOverlay)="overlayActive = !overlayActive">
+</app-table>
 
 <!-- Background Animation -->
-<app-background-animation></app-background-animation>
+<app-background-animation
+  [active]="!overlayActive"
+  mode="normal">
+</app-background-animation>
 
 <!-- Footer -->
 <div class="footer"></div>

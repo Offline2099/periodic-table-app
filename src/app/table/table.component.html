@@ -191,6 +191,12 @@
   class="page-overlay"
   *ngIf="pickedElement"
   (click)="pickElement(undefined)">
+
+  <app-background-animation
+    [active]="true"
+    mode="overlay">
+  </app-background-animation>
+
   <app-element-info
     *ngIf="pickedElement"
     [e]="pickedElement"
@@ -198,4 +204,5 @@
     (change)="pickElementByNumber($event)"
     (close)="pickElement(undefined)">
   </app-element-info>
+
 </div>

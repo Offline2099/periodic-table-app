@@ -70,6 +70,7 @@
   min-width: 58px;
   padding: 3px 0;
   background: #333;
+  color: #97b7b7;
   font-size: 22px;
 }
 
@@ -382,7 +383,7 @@
   justify-content: center;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  color: #bbb;
+  color: #97b7b7;
 }
 
 .element-data-value-unit {
@@ -429,7 +430,8 @@
 
 @media (max-width: 899px) {
   .element-data-property,
-  .element-data-value {
+  .element-data-value,
+  .element-data-value > * > * {
     font-size: 15px;
   }
 }

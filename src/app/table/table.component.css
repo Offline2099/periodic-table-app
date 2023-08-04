@@ -38,7 +38,7 @@
 .controls-sub-container-row {
   display: flex;
   justify-content: center;
-  color: #999;
+  color: #88a8a8;;
   font-size: 14px;
   letter-spacing: 0.02em;
 }
@@ -140,6 +140,7 @@
   justify-content: center;
   padding: 6px 10px;
   border-radius: 5px 5px 0 0;
+  color: #88a8a8;
   background: #222;
   cursor: pointer;
   user-select: none;
@@ -205,6 +206,7 @@ th {
   border-radius: 6px;
   background: 
     repeating-linear-gradient(-45deg, #282828 0, #282828 10px, #2c2c2c 11px, #2c2c2c 12px);
+  color: #88a8a8;
   text-align: center;
   letter-spacing: 0.01em;
   box-shadow: 0 0 2px 2px #111 inset;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, OnChanges } from '@angular/core';
 
 import { AnimationElement } from '../interfaces';
 import { UtilityService } from '../utility.service';
@@ -8,9 +8,15 @@ import { UtilityService } from '../utility.service';
   templateUrl: './background-animation.component.html',
   styleUrls: ['./background-animation.component.css']
 })
-export class BackgroundAnimationComponent implements OnInit {
+export class BackgroundAnimationComponent implements OnInit, OnChanges {
 
   constructor(private u: UtilityService) { }
+
+  @Input() active: boolean = true;
+  @Input() mode: string = 'normal';
+
+  @HostBinding('class.inactive') inactive: boolean = false;
+  @HostBinding('class.overlay') overlayMode: boolean = false;
 
   a: AnimationElement[] = [];
 
@@ -35,6 +41,11 @@ export class BackgroundAnimationComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateAnimation();
+    if (this.mode == 'overlay') this.overlayMode = true;
+  }
+
+  ngOnChanges(): void {
+    if (this.inactive == this.active) this.inactive = !this.active;
   }
 
   generateAnimation(): void {
