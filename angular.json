@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "periodic-table:build:production"
+              "buildTarget": "periodic-table:build:production"
             },
             "development": {
-              "browserTarget": "periodic-table:build:development"
+              "buildTarget": "periodic-table:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "periodic-table:build"
+            "buildTarget": "periodic-table:build"
           }
         },
         "test": {
