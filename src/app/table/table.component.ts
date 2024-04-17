@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 import { ChemicalElement, VisibilityWindow, TableVisibility } from '../interfaces';
 import { Elements } from '../data/chemical-elements';
@@ -11,7 +11,7 @@ import { UtilityService } from '../utility.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit, AfterViewInit {
+export class TableComponent {
 
   constructor(private u: UtilityService) { }
 
@@ -71,7 +71,7 @@ export class TableComponent implements OnInit, AfterViewInit {
         start: 0,
         range: range, 
         end: range - 1,
-        breakpoints: this.u.multipliedConsecutiveNumbers(nOfParts, range)
+        breakpoints: this.u.consecutiveNumbers(nOfParts, range)
       }
     }
 
@@ -138,7 +138,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     Elements.forEach(e => {
       if (!e.noImage) {
         let img = new Image();
-        img.src = './assets/img/elements/' + e.number + '.jpg';
+        img.src = `./assets/img/elements/${e.number}.jpg`;
       }
     });
   }

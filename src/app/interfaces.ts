@@ -50,9 +50,10 @@ export interface TableVisibility {
 
 export interface AnimationElement {
   text: string;
-  position: {
-    x: number; y: number;
-  }
-  direction: string;
-  delay: number;
+  style: string;
+  // position: {
+  //   x: number; y: number;
+  // }
+  // direction: string;
+  // delay: number;
 }

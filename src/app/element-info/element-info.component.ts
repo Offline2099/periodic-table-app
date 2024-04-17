@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { ChemicalElement, DataObject } from '../interfaces';
 import { Properties } from '../data/property-descriptions';
@@ -9,21 +9,19 @@ import { UtilityService } from '../utility.service';
   templateUrl: './element-info.component.html',
   styleUrls: ['./element-info.component.css']
 })
-export class ElementInfoComponent implements OnInit, OnChanges {
+export class ElementInfoComponent {
 
   constructor(private u: UtilityService) { }
 
   @Input() e!: ChemicalElement;
-  @Output() close: EventEmitter<any> = new EventEmitter();
+  
   @Output() change: EventEmitter<number> = new EventEmitter();
+  @Output() close: EventEmitter<null> = new EventEmitter();
 
   data: DataObject[] = [];
   imageVisible: boolean = true;
 
   ani: number = 1;
-
-  ngOnInit(): void {
-  }
 
   ngOnChanges(): void {
     this.formDataObjects();

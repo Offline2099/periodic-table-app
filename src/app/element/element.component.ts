@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ChemicalElement } from '../interfaces';
 
 @Component({
@@ -6,13 +6,8 @@ import { ChemicalElement } from '../interfaces';
   templateUrl: './element.component.html',
   styleUrls: ['./element.component.css']
 })
-export class ElementComponent implements OnInit {
+export class ElementComponent {
 
   @Input() e!: ChemicalElement;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

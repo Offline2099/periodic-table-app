@@ -26,7 +26,7 @@ sup, sub {
 }
 
 
-/*   Animations   */
+/*   Common Animations   */
 
 @keyframes fadeIn {
   0% {opacity: 0;}
@@ -68,5 +68,100 @@ sup, sub {
 @media (min-width: 1200px) {
   .invisible-desktop-wide {
     display: none !important;
+  }
+}
+
+
+/*   Background Animations (not working from component CSS!)   */
+
+@keyframes moveDownRight {
+  0% {
+    opacity: 0;
+    transform: translate(-25px, -25px);
+  }
+  4% {
+    opacity: .6;
+    transform: translate(-15px, -15px);
+  }
+  16% {
+    opacity: .6;
+    transform: translate(15px, 15px);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(25px, 25px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(25px, 25px);
+  }
+}
+
+@keyframes moveUpRight {
+  0% {
+    opacity: 0;
+    transform: translate(-25px, 25px);
+  }
+  4% {
+    opacity: .6;
+    transform: translate(-15px, 15px);
+  }
+  16% {
+    opacity: .6;
+    transform: translate(15px, -15px);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(25px, -25px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(25px, -25px);
+  }
+}
+
+@keyframes moveDownLeft {
+  0% {
+    opacity: 0;
+    transform: translate(25px, -25px);
+  }
+  4% {
+    opacity: .6;
+    transform: translate(15px, -15px);
+  }
+  16% {
+    opacity: .6;
+    transform: translate(-15px, 15px);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-25px, 25px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-25px, 25px);
+  }
+}
+
+@keyframes moveUpLeft {
+  0% {
+    opacity: 0;
+    transform: translate(25px, 25px);
+  }
+  4% {
+    opacity: .6;
+    transform: translate(15px, 15px);
+  }
+  16% {
+    opacity: .6;
+    transform: translate(-15px, -15px);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-25px, -25px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-25px, -25px);
   }
 }

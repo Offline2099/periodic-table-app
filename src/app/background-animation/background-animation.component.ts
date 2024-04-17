@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostBinding, OnChanges } from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 
 import { AnimationElement } from '../interfaces';
 import { UtilityService } from '../utility.service';
@@ -8,15 +8,12 @@ import { UtilityService } from '../utility.service';
   templateUrl: './background-animation.component.html',
   styleUrls: ['./background-animation.component.css']
 })
-export class BackgroundAnimationComponent implements OnInit, OnChanges {
+export class BackgroundAnimationComponent {
 
   constructor(private u: UtilityService) { }
 
-  @Input() active: boolean = true;
-  @Input() mode: string = 'normal';
-
-  @HostBinding('class.inactive') inactive: boolean = false;
-  @HostBinding('class.overlay') overlayMode: boolean = false;
+  @HostBinding('class.inactive') @Input() inactive: boolean = false;
+  @HostBinding('class.overlay') @Input() overlayMode: boolean = false;
 
   a: AnimationElement[] = [];
 
@@ -41,33 +38,29 @@ export class BackgroundAnimationComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.generateAnimation();
-    if (this.mode == 'overlay') this.overlayMode = true;
-  }
-
-  ngOnChanges(): void {
-    if (this.inactive == this.active) this.inactive = !this.active;
   }
 
   generateAnimation(): void {
-    this.a = this.u.consecutiveNumbers(150).map(e => ({
-      text: this.randomString(this.formulas),
-      position: this.randomPosition(),
-      direction: this.randomString(this.directions),
-      delay: Math.random() * this.duration - this.duration
-    }));
+    this.a = this.u.consecutiveNumbers(150).map(e => {
+
+      let position: {x: string, y: string} = this.randomPosition();
+      let direction: string = this.u.randomString(this.directions);
+      let delay: string = ((Math.random() - 1) * this.duration).toFixed(2);
+
+      return {
+        text: this.u.randomString(this.formulas),
+        style: `top: ${position.y}%; left: ${position.x}%; animation: ${direction} 30000ms linear infinite; animation-delay: ${delay}s;`
+      }
+    });
   }
 
-  randomString(array: string[]): string {
-    return array[Math.floor(Math.random() * array.length)];
-  }
-
-  randomPosition(): {x: number, y: number} {
+  randomPosition(): {x: string, y: string} {
     let x: number = 50, y: number = 50;
     while (x > 35 && x < 65 && y > 35 && y < 65) {
       x = Math.random() * 130 - 15;
       y = Math.random() * 120 - 10;
     }
-    return {x: x, y: y}
+    return {x: x.toFixed(2), y: y.toFixed(2)}
   }
 
 }

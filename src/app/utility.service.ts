@@ -5,18 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class UtilityService {
 
-  constructor() { }
-
-  consecutiveNumbers(n: number): number[] {
-    return [...Array(n).keys()];
-  }
-
-  multipliedConsecutiveNumbers(n: number, factor: number): number[] {
-    return [...Array(n).keys()].map(e => factor * e);
+  consecutiveNumbers(n: number, factor?: number): number[] {
+    return [...Array(n).keys()].map(e => (factor || 1) * e);
   }
 
   isNumeric(val: any): boolean {
     return !(val instanceof Array) && (val - parseFloat(val) + 1) >= 0;
+  }
+
+  randomString(array: string[]): string {
+    return array[Math.floor(Math.random() * array.length)];
   }
 
 }
