@@ -1,27 +1,21 @@
-# PeriodicTable
+# Periodic Table
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+## Project Description
 
-## Development server
+An interactive periodic table with some basic information and sample images for each chemical element. Designed to work comfortably on small screens.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* The user can hover over any element to see the sample or click on the element to see larger image and basic data. It is also possible to click through the elements in a manner similar to turning pages in a book.
+    
+* The periodic table remains conveniently usable on narrow screens and mobile devices, providing an additional interface to navigate it.
+   
+* A randomized animation with dynamically generated items runs in the background.
+    
+* This project can possibly be expanded into a larger educational website filled with more detailed information about the periodic table and each chemical element.
 
-## Code scaffolding
+## Technical Information
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project is made with Angular.
 
-## Build
+* To run the app in the development mode, run `ng serve` in the project directory. Open [http://localhost:4200](http://localhost:4200) to view it in the browser. The page will reload if you make edits.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* To build the app in the production mode, run `ng build` in the project directory. The app will be saved to the `dist/` directory.
