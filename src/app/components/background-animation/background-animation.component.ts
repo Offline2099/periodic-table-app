@@ -1,7 +1,7 @@
 import { Component, Input, HostBinding } from '@angular/core';
 
-import { AnimationElement } from '../interfaces';
-import { UtilityService } from '../utility.service';
+import { AnimationElement } from '../../interfaces';
+import { UtilityService } from '../../utility.service';
 
 @Component({
   selector: 'app-background-animation',

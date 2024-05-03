@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { ChemicalElement, DataObject } from '../interfaces';
-import { Properties } from '../data/property-descriptions';
-import { UtilityService } from '../utility.service';
+import { ChemicalElement, DataObject } from '../../interfaces';
+import { Properties } from '../../data/property-descriptions';
+import { UtilityService } from '../../utility.service';
 
 @Component({
   selector: 'app-element-info',

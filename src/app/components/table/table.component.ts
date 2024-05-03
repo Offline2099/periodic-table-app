@@ -1,10 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { ChemicalElement, VisibilityWindow, TableVisibility } from '../interfaces';
-import { Elements } from '../data/chemical-elements';
-import * as C from '../data/table-constants';
+import { ChemicalElement, VisibilityWindow, TableVisibility } from '../../interfaces';
+import { Elements } from '../../data/chemical-elements';
+import * as C from '../../data/table-constants';
 
-import { UtilityService } from '../utility.service';
+import { UtilityService } from '../../utility.service';
 
 @Component({
   selector: 'app-table',
