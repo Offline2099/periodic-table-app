@@ -6,7 +6,7 @@ import { UtilityService } from '../utility.service';
 @Component({
   selector: 'app-background-animation',
   templateUrl: './background-animation.component.html',
-  styleUrls: ['./background-animation.component.css']
+  styleUrls: ['./background-animation.component.scss']
 })
 export class BackgroundAnimationComponent {
 
