@@ -11,12 +11,12 @@
     class="element-controls"
     [ngClass]="{'invisible-desktop-wide': imageVisible}">
     <div 
-      class="element-control-button"
-      [ngClass]="{'element-control-button-disabled': e.number == 1}"
+      class="element-controls-button"
+      [ngClass]="{'element-controls-button-disabled': e.number == 1}"
       (click)="switchElement(e.number - 1)">&#9664;</div>
     <div 
-      class="element-control-button"
-      [ngClass]="{'element-control-button-disabled': e.number == 118}"
+      class="element-controls-button"
+      [ngClass]="{'element-controls-button-disabled': e.number == 118}"
       (click)="switchElement(e.number + 1)">&#9654;</div>
   </div>
   <div 
@@ -41,12 +41,12 @@
   </div>
   <ng-container *ngIf="imageVisible">
     <div 
-      class="element-control-button button-large button-left"
-      [ngClass]="{'element-control-button-disabled': e.number == 1}"
+      class="element-controls-button button-large button-left"
+      [ngClass]="{'element-controls-button-disabled': e.number == 1}"
       (click)="switchElement(e.number - 1)">&#9664;</div>
     <div 
-      class="element-control-button button-large button-right"
-      [ngClass]="{'element-control-button-disabled': e.number == 118}"
+      class="element-controls-button button-large button-right"
+      [ngClass]="{'element-controls-button-disabled': e.number == 118}"
       (click)="switchElement(e.number + 1)">&#9654;</div>
   </ng-container>
 </div>
@@ -56,8 +56,12 @@
   <div 
     class="element-image-toggler"
     (click)="toggleImage()">
-    <span *ngIf="imageVisible">&#9650; Hide Sample</span>
-    <span *ngIf="!imageVisible">&#9660; Show Sample</span>
+    <span 
+      *ngIf="imageVisible"
+      class="element-image-toggler-text">&#9650; Hide Sample</span>
+    <span 
+      *ngIf="!imageVisible"
+      class="element-image-toggler-text">&#9660; Show Sample</span>
   </div>
   <div class="element-symbol">
     <span class="ani-{{ani}}">{{e.symbol}}</span>
@@ -84,7 +88,7 @@
       </div>
       <div class="element-data-value">
         <span class="ani-{{ani}}">
-          <span>{{d.value}}</span>
+          <span class="element-data-value-number">{{d.value}}</span>
           <span 
             *ngIf="d.unit"
             class="element-data-value-unit"

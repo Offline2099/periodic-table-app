@@ -1,5 +1,4 @@
-
-/*   Container   */
+@use './scss' as *;
 
 :host {
   position: relative;
@@ -9,74 +8,53 @@
   animation: fadeIn 1s;
 }
 
-
-/*   Header   */
-
-.main-header-container {
+header {
+  @include shadow-inset(3px, $g-2a);
+  @include bg-hex($g-28, 56px);
   display: flex;
-  flex-basis: 100%;
   justify-content: center;
   padding: 18px 5px 22px 5px;
-  background: #282828;
-  background-image: url('../assets/img/decorative/hexagonal-tile.png');
-  background-size: 56px;
-  box-shadow: 0 0 3px 3px #2a2a2a inset;
-}
-
-.main-header-text {
-  display: flex;
-  justify-content: center;
-  color: #97b7b7;
-  font-size: 26px;
-  letter-spacing: .02em;
-  text-shadow: 1px 1px #111;
-  white-space: pre-wrap;
-}
-
-.main-header-text:last-of-type {
-  color: #88a8a8;
-}
-
-@media (max-width: 1199px) {
-  .main-header-container {
+  @include desktop-small {
     padding: 15px 5px;
     background-size: 48px;
   }
-  .main-header-text {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 899px) {
-  .main-header-text {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 599px) {
-  .main-header-container {
+  @include mobile {
     flex-wrap: wrap;
     padding: 5px 5px 8px 5px;
   }
-  .main-header-text {
+}
+
+.header-text {
+  display: flex;
+  justify-content: center;
+  color: $color-accent;
+  font-size: 26px;
+  letter-spacing: .02em;
+  white-space: pre-wrap;
+  text-shadow: 1px 1px $g-11;
+  &:last-of-type {
+    color: $color-accent-dim;
+  }
+  @include desktop-small {
+    font-size: 24px;
+  }
+  @include tablet {
+    font-size: 22px;
+  }
+  @include mobile {
     flex-basis: 100%;
     font-size: 20px;
-  }
-  .main-header-text:last-of-type {
-    font-size: 18px;
+    &:last-of-type {
+      font-size: 18px;
+    }
   }
 }
 
-
-/*   Footer   */
-
-.footer {
+footer {
+  @include shadow-inset(3px, $g-2a);
+  @include bg-hex($g-28, 48px);
   display: flex;
   flex-basis: 100%;
   min-height: 60px;
   margin-top: auto;
-  background: #282828;
-  background-image: url('../assets/img/decorative/hexagonal-tile.png');
-  background-size: 48px;
-  box-shadow: 0 0 3px 3px #2a2a2a inset;
 }

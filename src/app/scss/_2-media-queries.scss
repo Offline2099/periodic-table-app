@@ -1,0 +1,76 @@
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 900px;
+$breakpoint-desktop-small: 1200px;
+$breakpoint-desktop-1: 1350px;
+$breakpoint-desktop-2: 1660px;
+$breakpoint-desktop-3: 1850px;
+
+@mixin Mobile {
+  @media (max-width: ($breakpoint-mobile - 1px)) { @content; }
+}
+
+@mixin mobile {
+  @include Mobile {
+    & { @content; }
+  }
+}
+
+@mixin Tablet {
+  @media (max-width: ($breakpoint-tablet - 1px)) { @content; }
+}
+
+@mixin tablet {
+  @include Tablet {
+    & { @content; }
+  }
+}
+
+@mixin Desktop-small {
+  @media (max-width: ($breakpoint-desktop-small - 1px)) { @content; }
+}
+
+@mixin desktop-small {
+  @include Desktop-small {
+    & { @content; }
+  }
+}
+
+@mixin Desktop-1 {
+  @media (max-width: ($breakpoint-desktop-1 - 1px)) { @content; }
+}
+
+@mixin desktop-1 {
+  @include Desktop-1 {
+    & { @content; }
+  }
+}
+
+@mixin Desktop-2 {
+  @media (max-width: ($breakpoint-desktop-2 - 1px)) { @content; }
+}
+
+@mixin desktop-2 {
+  @include Desktop-2 {
+    & { @content; }
+  }
+}
+
+@mixin Desktop-3 {
+  @media (max-width: ($breakpoint-desktop-3 - 1px)) { @content; }
+}
+
+@mixin desktop-3 {
+  @include Desktop-3 {
+    & { @content; }
+  }
+}
+
+@mixin Hover {
+  @media (hover: hover) { @content; }
+}
+
+@mixin hover {
+  @include Hover {
+    &:hover { @content; }
+  }
+}

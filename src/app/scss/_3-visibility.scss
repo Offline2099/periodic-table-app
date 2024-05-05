@@ -1,0 +1,31 @@
+@use './2-media-queries' as *;
+
+@media (max-width: ($breakpoint-mobile - 1px)) {
+  .invisible-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: $breakpoint-mobile) and (max-width: ($breakpoint-tablet - 1px)) {
+  .invisible-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .invisible-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) and (max-width: ($breakpoint-desktop-small - 1px)) {
+  .invisible-desktop-small {
+    display: none !important;
+  }
+}
+
+@media (min-width: $breakpoint-desktop-small) {
+  .invisible-desktop-wide {
+    display: none !important;
+  }
+}

@@ -1,0 +1,7 @@
+@mixin shadow($size, $color) {
+  box-shadow: 0 0 $size $size $color;
+}
+
+@mixin shadow-inset($size, $color) {
+  box-shadow: 0 0 $size $size $color inset;
+}
